@@ -1,7 +1,7 @@
 {
-  "generated": "2026-11-09T21:36:18.097401+11:00",
+  "generated": "2026-11-09T21:52:49.284282+11:00",
   "weather": {
-    "temp": 13,
+    "temp": 12,
     "feels": 11,
     "cond": "Clear",
     "today_hi": 18,
@@ -26,22 +26,22 @@
       "sym": "AAPL",
       "name": "Apple Inc.",
       "price": 342.37,
-      "chg": -2.259999999999991,
-      "pct": -0.6557757595101967
+      "chg": -1.8000134277343705,
+      "pct": -0.5230012370361024
     },
     {
       "sym": "TSLA",
       "name": "Tesla, Inc.",
       "price": 358.22,
-      "chg": -41.589999999999975,
-      "pct": -10.402441159550781
+      "chg": 14.529997558593777,
+      "pct": 4.227646267095277
     },
     {
       "sym": "SPCX",
-      "name": "Space Exploration Technologies ",
+      "name": "Space Exploration Technologies",
       "price": 134.27,
-      "chg": -0.44999999999998863,
-      "pct": -0.33402612826602485
+      "chg": 10.649997253417979,
+      "pct": 8.615108410287139
     }
   ],
   "launch": {

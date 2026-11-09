@@ -201,15 +201,17 @@
  var css=document.getElementById('cssfeatures');
  function cssSupports(prop,val){
    try {
+     // CSS.supports wants hyphenated names (border-radius); el.style wants camelCase (borderRadius).
      if (window.CSS && CSS.supports){ return CSS.supports(prop,val); }
-     var el=document.createElement('div'); el.style[prop]=val; return el.style[prop]!=='' && el.style[prop]!=null;
+     var camel=prop.replace(/-([a-z])/g,function(m,c){ return c.toUpperCase(); });
+     var el=document.createElement('div'); el.style[camel]=val; return el.style[camel]!=='' && el.style[camel]!=null;
    } catch(e){ return false; }
  }
  function cssRow(label,b){ css.appendChild(rowHTML(label,yesno(b))); add(label,yesno(b)); }
  cssRow('Flexbox (display:flex):', cssSupports('display','flex'));
  cssRow('CSS Grid (display:grid):', cssSupports('display','grid'));
- cssRow('border-radius:', cssSupports('borderRadius','5px'));
- cssRow('box-shadow:', cssSupports('boxShadow','0 0 1px #000'));
+ cssRow('border-radius:', cssSupports('border-radius','5px'));
+ cssRow('box-shadow:', cssSupports('box-shadow','0 0 1px #000'));
  cssRow('position:sticky:', cssSupports('position','sticky'));
  cssRow('CSS.supports available:', !!(window.CSS && CSS.supports));
 

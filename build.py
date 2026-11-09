@@ -40,7 +40,7 @@ def wmo(c):
     try: return WMO.get(int(c), "—")
     except Exception: return "—"
 
-CFG = json.load(open(os.path.join(HERE, "config.json")))
+CFG = json.load(open(os.path.join(HERE, "config.json"), encoding="utf-8"))
 LOC = CFG["location"]
 TZNAME = LOC.get("timezone", "UTC")
 TZ = ZoneInfo(TZNAME) if ZoneInfo else timezone.utc
@@ -69,12 +69,19 @@ def fetch_stocks():
     for sym in CFG["tickers"]:
         try:
             u = "https://query1.finance.yahoo.com/v8/finance/chart/%s?interval=1d&range=5d" % urllib.parse.quote(sym)
-            m = _get_json(u)["chart"]["result"][0]["meta"]
+            res = _get_json(u)["chart"]["result"][0]
+            m = res["meta"]
             price = m.get("regularMarketPrice")
-            prev = m.get("chartPreviousClose") or m.get("previousClose")
+            # NB: with range=5d, meta.chartPreviousClose is the close *before the 5-day window*,
+            # not yesterday's close. Use the second-to-last daily close from the series instead.
+            closes = [c for c in ((res.get("indicators") or {}).get("quote") or [{}])[0].get("close") or []
+                      if c is not None]
+            prev = closes[-2] if len(closes) >= 2 else None
+            if price is None and closes:
+                price = closes[-1]
             chg = (price - prev) if (price is not None and prev) else None
             pct = (chg / prev * 100) if (chg is not None and prev) else None
-            out.append({"sym": sym, "name": m.get("shortName") or m.get("longName") or sym,
+            out.append({"sym": sym, "name": (m.get("shortName") or m.get("longName") or sym).strip(),
                         "price": price, "chg": chg, "pct": pct})
         except Exception as e:
             sys.stderr.write("stock %s failed: %s\n" % (sym, e))
@@ -118,7 +125,7 @@ def fetch_news():
     return out
 
 def fetch_photo():
-    photos = json.load(open(os.path.join(HERE, "photos.json")))
+    photos = json.load(open(os.path.join(HERE, "photos.json"), encoding="utf-8"))
     assets = os.path.join(HERE, "assets")
     os.makedirs(os.path.join(assets, "_src"), exist_ok=True)
     start = NOW.toordinal() % len(photos)
@@ -127,7 +134,7 @@ def fetch_photo():
         p = photos[i]
         try:
             raw = _get(p["url"], timeout=45)
-            im = Image.open(io.BytesIO(raw)).convert("L")       # grayscale (treatment A)
+            im = ImageOps.exif_transpose(Image.open(io.BytesIO(raw))).convert("L")  # grayscale (treatment A)
             w = 1272; h = round(w * im.height / im.width)
             im = ImageOps.autocontrast(im.resize((w, h), Image.LANCZOS), cutoff=1)
             im.save(os.path.join(assets, "photo.jpg"), quality=88)
@@ -253,10 +260,15 @@ TEMPLATE = Template(r"""<!DOCTYPE html>
  <div class="photo"><img src="assets/photo.jpg?v=$stamp" alt="$photo_alt"></div>
  <div class="cap">$photo_cap</div>
 
- <div class="foot"><span>Updated $updated</span><span>Rebuilt daily &middot; GitHub Actions</span></div>
+ <div class="foot"><span>Updated $updated</span><span>Rebuilt every 3 hours &middot; GitHub Actions</span></div>
 </body>
 </html>
 """)
+
+def greeting(hour):
+    if 5 <= hour < 12: return "Good morning"
+    if 12 <= hour < 17: return "Good afternoon"
+    return "Good evening"
 
 def main():
     data = {"generated": NOW.isoformat()}
@@ -267,8 +279,18 @@ def main():
     except Exception as e: sys.stderr.write("launch failed: %s\n" % e); data["launch"] = None
     data["news"] = fetch_news()
     data["photo"] = fetch_photo()
+    if data["photo"] is None:
+        # Download failed, so the previous photo.jpg is still on the page: keep its caption too.
+        try:
+            with open(os.path.join(HERE, "data.json"), encoding="utf-8") as f:
+                old = json.load(f).get("photo")
+            if old and os.path.exists(os.path.join(HERE, "assets", "photo.jpg")):
+                data["photo"] = old
+        except Exception:
+            pass
 
-    json.dump(data, open(os.path.join(HERE, "data.json"), "w"), indent=2)
+    with open(os.path.join(HERE, "data.json"), "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2)
 
     w = data["weather"] or {"temp": "—", "feels": "—", "cond": "—",
                             "today_hi": "—", "today_lo": "—", "days": []}
@@ -282,7 +304,7 @@ def main():
 
     forecast = r_forecast(w["days"]) or "<div><div class='fw'>Forecast unavailable</div></div>"
     out = TEMPLATE.substitute(
-        greet="Good morning", bigdate=NOW.strftime("%A %-d %b"), loc=esc(LOC["name"]),
+        greet=greeting(NOW.hour), bigdate=NOW.strftime("%A %-d %b"), loc=esc(LOC["name"]),
         temp=w["temp"], cond=esc(w["cond"]), feels=w["feels"], hi=w["today_hi"], lo=w["today_lo"],
         forecast=forecast, markets=r_markets(data["stocks"]),
         launch_name=esc(lau["name"]),
@@ -292,7 +314,8 @@ def main():
         photo_cap=cap, photo_alt=alt, stamp=NOW.strftime("%Y%m%d%H%M"),
         updated=NOW.strftime("%-I:%M %p %Z"),
     )
-    open(os.path.join(HERE, "index.html"), "w").write(out)
+    with open(os.path.join(HERE, "index.html"), "w", encoding="utf-8") as f:
+        f.write(out)
     print("Built index.html and data.json at", NOW.isoformat())
 
 if __name__ == "__main__":
