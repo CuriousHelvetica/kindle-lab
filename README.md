@@ -7,7 +7,7 @@ Account: GitHub `CuriousHelvetica`. Owner uses the Kindle in bed, indoors, on Wi
 ## Status
 
 - **Phase 0 — browser capability test: DONE** (tested on-device 2026-11-09 via `kindle-test.html` + `net-test.html`). Verdict below. The big surprise: the browser engine is **modern**, not the ancient WebKit its user agent claims.
-- **Phase 1 — morning dashboard: built locally (2026-11-09).** A pre-rendered static page from live data (weather, AAPL/TSLA/SPCX, next SpaceX launch, headlines, daily B&W photo). Previewed and approved on-device; **not yet deployed** to GitHub Pages. See _The dashboard_ below.
+- **Phase 1 — morning dashboard: LIVE (2026-11-09).** A pre-rendered static page from live data (weather, AAPL/TSLA/SPCX, next SpaceX launch, headlines, daily B&W photo). Deployed to GitHub Pages at **https://curioushelvetica.github.io/kindle-lab/index.html** (the Kindle bookmark); the scheduled Action rebuilds it every 3 hours. See _The dashboard_ below.
 
 ## Confirmed device capabilities (PW 12th gen, fw 5.20.1.0.2, Experimental Browser)
 
