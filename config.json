@@ -1,0 +1,16 @@
+{
+  "location": {
+    "name": "St Ives, NSW",
+    "latitude": -33.73,
+    "longitude": 151.16,
+    "timezone": "Australia/Sydney"
+  },
+  "tickers": ["AAPL", "TSLA", "SPCX"],
+  "news": [
+    { "tag": "Tesla", "query": "Tesla" },
+    { "tag": "SpaceX", "query": "SpaceX" },
+    { "tag": "AI & Robotics", "query": "AI robotics" }
+  ],
+  "headlines_per_topic": 1,
+  "photo": { "treatment": "grayscale" }
+}

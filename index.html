@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Dashboard</title>
+<style>
+ *{box-sizing:border-box;}
+ body{background:#fff;color:#000;margin:0;padding:22px 20px 40px;font-family:Helvetica,Arial,sans-serif;max-width:636px;}
+ .mast{display:flex;justify-content:space-between;align-items:flex-end;}
+ .greet{font-size:14px;letter-spacing:3px;text-transform:uppercase;}
+ .bigdate{font-size:38px;font-weight:800;line-height:1.04;margin-top:3px;}
+ .loc{font-size:14px;letter-spacing:2px;text-transform:uppercase;margin-top:6px;}
+ .wx{text-align:right;}
+ .wx .t{font-size:46px;font-weight:800;line-height:1;}
+ .wx .c{font-size:15px;margin-top:2px;}
+ .wx .hl{font-size:14px;margin-top:2px;}
+ hr.big{border:0;border-top:4px solid #000;margin:14px 0 0;}
+ hr.thin{border:0;border-top:1px solid #000;margin:0;}
+ h2{font-size:13px;letter-spacing:4px;text-transform:uppercase;margin:22px 0 8px;font-weight:700;}
+ .fc{display:flex;gap:10px;}
+ .fc div{flex:1;border:1px solid #000;padding:8px;text-align:center;}
+ .fc .fd{font-size:13px;text-transform:uppercase;letter-spacing:1px;}
+ .fc .fw{font-size:13px;margin:4px 0;min-height:2.4em;}
+ .fc .ft{font-size:16px;font-weight:700;}
+ table.mkt{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;}
+ table.mkt td{padding:9px 2px;border-bottom:1px solid #000;font-size:18px;vertical-align:middle;}
+ table.mkt .sym{font-weight:800;}
+ table.mkt .nm{font-size:12px;font-weight:400;display:block;letter-spacing:.3px;}
+ table.mkt .px{text-align:right;font-weight:700;white-space:nowrap;}
+ table.mkt .chg{text-align:right;white-space:nowrap;font-size:15px;padding-left:10px;}
+ .dn::before{content:"\25BC  ";}
+ .up::before{content:"\25B2  ";}
+ .lau{border:2px solid #000;padding:14px;display:flex;justify-content:space-between;align-items:center;}
+ .lau .ln{font-size:18px;font-weight:800;}
+ .lau .lp{font-size:13px;margin-top:3px;letter-spacing:.3px;}
+ .lau .lt{text-align:right;white-space:nowrap;padding-left:10px;}
+ .lau .lt .lw{font-size:20px;font-weight:800;}
+ .lau .lt .ls{font-size:12px;text-transform:uppercase;letter-spacing:1px;}
+ .hd{margin:10px 0;}
+ .hd .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;}
+ .hd .ttl{font-size:17px;font-weight:600;line-height:1.3;}
+ .photo{border:1px solid #000;}
+ .photo img{display:block;width:100%;height:auto;}
+ .cap{font-family:Georgia,serif;font-size:14px;padding:8px 2px 0;font-style:italic;}
+ .cap b{font-style:normal;}
+ .foot{margin-top:26px;border-top:1px solid #000;padding-top:8px;font-size:12px;letter-spacing:1px;text-transform:uppercase;display:flex;justify-content:space-between;}
+</style>
+</head>
+<body>
+ <div class="mast">
+  <div>
+   <div class="greet">Good morning</div>
+   <div class="bigdate">Monday 9 Nov</div>
+   <div class="loc">St Ives, NSW</div>
+  </div>
+  <div class="wx">
+   <div class="t">13&deg;</div>
+   <div class="c">Clear &middot; feels 12&deg;</div>
+   <div class="hl">Today 18&deg; / 10&deg;</div>
+  </div>
+ </div>
+ <hr class="big">
+
+ <h2>Next 2 days</h2>
+ <div class="fc"><div><div class="fd">Tue 10</div><div class="fw">Partly cloudy</div><div class="ft">24&deg; / 9&deg;</div></div><div><div class="fd">Wed 11</div><div class="fw">Heavy drizzle</div><div class="ft">28&deg; / 12&deg;</div></div></div>
+
+ <h2>Markets &middot; at last close</h2>
+ <table class="mkt"><tr><td class="sym">AAPL<span class="nm">Apple Inc.</span></td><td class="px">$342.37</td><td class="chg dn">0.66% -2.26</td></tr><tr><td class="sym">TSLA<span class="nm">Tesla, Inc.</span></td><td class="px">$358.22</td><td class="chg dn">10.40% -41.59</td></tr><tr><td class="sym">SPCX<span class="nm">Space Exploration Technologies </span></td><td class="px">$134.27</td><td class="chg dn">0.33% -0.45</td></tr></table>
+
+ <h2>Next SpaceX launch</h2>
+ <div class="lau">
+  <div><div class="ln">Falcon 9 Block 5 | USSF-xxx (&quot;R-5&quot;)</div><div class="lp">Vandenberg SFB, CA, USA · To Be Confirmed</div></div>
+  <div class="lt"><div class="lw">Tue 10 Nov, 2:03 PM</div><div class="ls">in ~16 hours</div></div>
+ </div>
+
+ <h2>Headlines</h2>
+ <div class="hd"><div class="tag">Tesla</div><div class="ttl">Tesla&#x27;s quiet EV software update is unplugging Australian homes from their batteries on wheels</div></div><hr class="thin"><div class="hd"><div class="tag">SpaceX</div><div class="ttl">Elon Musk’s Starlink pushes for Australian mobile licence</div></div><hr class="thin"><div class="hd"><div class="tag">AI &amp; Robotics</div><div class="ttl">What Does XTEND AI Robotics, Inc.&#x27;s (NYSE:XTND) $8.3 Million Defense Order Include?</div></div>
+
+ <h2>Photograph of the day</h2>
+ <div class="photo"><img src="assets/photo.jpg?v=202611092119" alt="Dorothea Lange, Migrant Mother"></div>
+ <div class="cap"><b>Dorothea Lange</b> &mdash; &ldquo;Migrant Mother,&rdquo; 1936. U.S. Library of Congress (public domain).</div>
+
+ <div class="foot"><span>Updated 9:19 PM AEDT</span><span>Rebuilt daily &middot; GitHub Actions</span></div>
+</body>
+</html>

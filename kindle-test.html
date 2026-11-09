@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kindle Browser Capability Test</title>
+<style>
+ body { background:#fff; color:#000; font-family: Georgia, 'Times New Roman', serif; font-size:19px; line-height:1.5; margin:0; padding:16px; max-width:760px; }
+ h1 { font-size:26px; margin:0 0 4px; }
+ h2 { font-size:21px; margin:28px 0 8px; border-bottom:2px solid #000; padding-bottom:4px; }
+ .sub { font-size:15px; margin-bottom:16px; }
+ .row { margin:6px 0; }
+ .label { display:inline-block; min-width:230px; }
+ pre { white-space:pre-wrap; word-wrap:break-word; border:2px solid #000; padding:12px; font-family:'Courier New',monospace; font-size:15px; }
+ .box { border:2px solid #000; padding:16px; margin:10px 0; }
+ #tapbox { border:3px solid #000; padding:40px 16px; text-align:center; font-size:22px; -webkit-user-select:none; user-select:none; }
+ .swatches { font-size:0; }
+ .swatch { display:inline-block; width:9%; height:48px; }
+ .jp { font-size:30px; line-height:1.6; }
+ button { font-size:19px; padding:10px 18px; border:2px solid #000; background:#fff; margin:6px 0; }
+ img.testimg { width:300px; height:80px; image-rendering:pixelated; border:1px solid #000; display:block; }
+ canvas { border:1px solid #000; display:block; }
+ .note { font-size:15px; }
+</style>
+</head>
+<body>
+<h1>Kindle Browser Capability Test</h1>
+<div class="sub">Open this on the Kindle, then read each section and tell me what you see. (Kindle Lab project.)</div>
+
+<noscript>
+ <div class="box"><strong>JavaScript did NOT run.</strong> The Experimental Browser has JavaScript disabled or unsupported. Report this result.</div>
+</noscript>
+
+<h2>0. Summary (read this back to me)</h2>
+<pre id="summary">If you only ever see this line, JavaScript did not run.</pre>
+
+<h2>1. Device &amp; browser</h2>
+<div id="device"></div>
+
+<h2>2. JavaScript features</h2>
+<div id="jsfeatures"></div>
+
+<h2>3. localStorage persistence</h2>
+<div id="storage" class="box"></div>
+<button id="resetbtn" type="button">Reset the open counter</button>
+<div class="note">Test: note the number, reload the page &mdash; it should go up by 1. Then press Home, reopen this bookmark, and check if the number survived (tells us if storage persists across sessions).</div>
+
+<h2>4. Tap / touch</h2>
+<div id="tapbox">Tap anywhere in this box.</div>
+<div id="tapinfo" class="note"></div>
+
+<h2>5. Japanese text</h2>
+<div class="box">
+ <div class="jp">&#12402;&#12425;&#12364;&#12394;: &#12354;&#12356;&#12358;&#12360;&#12362; &#12363;&#12365;&#12367;&#12369;&#12371;</div>
+ <div class="jp">&#12459;&#12479;&#12459;&#12490;: &#12450;&#12452;&#12454;&#12456;&#12458; &#12459;&#12461;&#12463;&#12465;&#12467;</div>
+ <div class="jp">&#28450;&#23383;: &#26085;&#26412;&#35486; &#28450;&#23383; &#26481;&#20140; &#26360;&#12367; &#35501;&#12416;</div>
+ <div class="jp">&#25991;: &#20170;&#26085;&#12399;&#12356;&#12356;&#22825;&#27671;&#12067;&#12059;&#12290;</div>
+ <div class="jp">&#12523;&#12499;: <ruby>&#28450;&#23383;<rt>&#12363;&#12435;&#12376;</rt></ruby> <ruby>&#26481;&#20140;<rt>&#12392;&#12358;&#12365;&#12423;&#12358;</rt></ruby></div>
+</div>
+<div class="note">Report: do all five lines show real characters, or do any show empty boxes / question marks (tofu)? Does the furigana (small kana above the kanji on the last line) appear?</div>
+
+<h2>6. Grayscale &amp; images</h2>
+<div class="row"><strong>CSS gray swatches</strong> (0% &rarr; 100%). How many distinct shades can you count?</div>
+<div class="swatches" id="swatches"></div>
+<div class="row" style="margin-top:14px"><strong>Embedded PNG</strong> (top half: smooth gradient, bottom half: 16 steps). Does it appear? Smooth or banded?</div>
+<img class="testimg" id="pngimg" alt="grayscale gradient test" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAABQCAAAAACGgRenAAACHElEQVR42u3QZ1sNYACA4WMkCTmKRJRDqZBRSUihrBJRWRmFFJUIiYgSkYYVUSGjRBlZCVmFhJBCZWSE9kJWfsD7yVfXc/+EWyKRNGnarLmcXAv5lgqtFBVbt2mr1E4qba+s0qGjqmontc5d1NW7dtPQ7C6T9eippd1LR0dXr3efvvr6/foPGGhgaGg0yHiwicmQocNMh5uZmY8YOcrC0nL0mLHjxltZWU+wmTjJ1nbyFDt7B4ep06bPmOnoOGv2nLlOzs7z5i9wWejq6rZosbuHp+cSr6XLvL2Xr1jps8rXd/Uav7Xr/P3XbwgI3BgUtGlz8JatISHbQsPCIyK279i5a3dk5J69Ufv2R0fHxB44eCgu7vCRo8fiExKOJ544mZSUfOr0mbMpKefOX7h4KTX1ctqVq9fS06/fuHnrdkZG5p2797Ky7mc/ePgoJ+fxk6e5z/Ly8p+/eFlQWFj06vWbt8XF795/+FhS8unzl9Ky8vKKyqrqmtrauvqv3743NPz4+ev3n0YJWWSRRRZZZJFFFllkkUUWWWSRRRZZZJFFFllkkUUWWWSRRRZZZJFFFllkkUUWWWSRRRZZZJFFFllkkUUWWWSRRRZZZP23WQKpSCYyEFiI7EUuIh9BsChKlChKE2SLikQVokYBWWSRRRZZZJFFFllkkUUWWWSRRRZZZJFFFllkkUUWWWSRRRZZZJFFFllkkUXWP2T9BY6LiyOTLuLeAAAAAElFTkSuQmCC">
+<div class="row" style="margin-top:14px"><strong>Canvas drawing</strong>. Does a gradient box appear below?</div>
+<canvas id="cv" width="300" height="80"></canvas>
+<div class="row" style="margin-top:14px"><strong>SVG gradient</strong>. Does a gray bar appear below?</div>
+<svg id="svgtest" width="300" height="40" xmlns="http://www.w3.org/2000/svg">
+ <defs><linearGradient id="g1"><stop offset="0%" stop-color="#000"/><stop offset="100%" stop-color="#fff"/></linearGradient></defs>
+ <rect width="300" height="40" fill="url(#g1)" stroke="#000"/>
+</svg>
+
+<h2>7. CSS features</h2>
+<div id="cssfeatures"></div>
+
+<h2>8. Network (optional &mdash; makes outside connections)</h2>
+<button id="fetchbtn" type="button">Test data fetch (XHR)</button>
+<div id="fetchresult" class="note"></div>
+<button id="wsbtn" type="button">Test WebSocket</button>
+<div id="wsresult" class="note"></div>
+
+<script>
+(function(){
+ var results = [];
+ function add(name, value){ results.push([name, value]); }
+ function rowHTML(label, val){
+   var d=document.createElement('div'); d.className='row';
+   var s=document.createElement('span'); s.className='label'; s.appendChild(document.createTextNode(label));
+   d.appendChild(s); d.appendChild(document.createTextNode(val));
+   return d;
+ }
+ function yesno(b){ return b ? 'YES' : 'NO'; }
+ function has(fn){ try { return !!fn(); } catch(e){ return false; } }
+ function parses(code){ try { new Function(code); return true; } catch(e){ return false; } }
+
+ // Section 1: device
+ var dev = document.getElementById('device');
+ function devRow(label, val){ dev.appendChild(rowHTML(label, val)); add(label, val); }
+ try {
+   devRow('User agent:', navigator.userAgent || '(none)');
+   devRow('Platform:', navigator.platform || '(none)');
+   devRow('Language:', navigator.language || '(none)');
+   devRow('Screen (px):', (screen.width||'?')+' x '+(screen.height||'?'));
+   devRow('Window (px):', (window.innerWidth||'?')+' x '+(window.innerHeight||'?'));
+   devRow('Device pixel ratio:', (window.devicePixelRatio!=null?window.devicePixelRatio:'(none)'));
+   devRow('Color depth:', (screen.colorDepth||'?')+'-bit');
+   devRow('Online flag:', yesno(navigator.onLine));
+   var now = new Date();
+   devRow('Date/time:', now.toString());
+   devRow('Timezone offset (min):', String(now.getTimezoneOffset()));
+ } catch(e){ devRow('Device error:', String(e)); }
+
+ // Section 2: JS features
+ var js = document.getElementById('jsfeatures');
+ function jsRow(label, b){ js.appendChild(rowHTML(label, yesno(b))); add(label, yesno(b)); }
+ jsRow('JavaScript runs:', true);
+ jsRow('JSON:', typeof JSON !== 'undefined');
+ jsRow('Array.forEach (ES5):', !!(Array.prototype && Array.prototype.forEach));
+ jsRow('addEventListener:', 'addEventListener' in window);
+ jsRow('querySelector:', has(function(){ return document.querySelector; }));
+ jsRow('localStorage object:', has(function(){ return typeof localStorage !== 'undefined' && localStorage; }));
+ jsRow('let / const:', parses('let a=1; const b=2;'));
+ jsRow('Arrow functions:', parses('var f=()=>1;'));
+ jsRow('Template literals:', parses('var s=`x`;'));
+ jsRow('Classes:', parses('class A{}'));
+ jsRow('async / await:', parses('async function f(){ await 1; }'));
+ jsRow('Promise:', typeof Promise !== 'undefined');
+ jsRow('fetch API:', typeof fetch !== 'undefined');
+ jsRow('WebSocket object:', typeof WebSocket !== 'undefined');
+ jsRow('canvas 2D:', has(function(){ var c=document.createElement('canvas'); return c.getContext && c.getContext('2d'); }));
+
+ // Section 3: localStorage
+ var storageEl = document.getElementById('storage');
+ var lsOK=false, count=0, last='(never before)';
+ try {
+   if (typeof localStorage !== 'undefined' && localStorage) {
+     lsOK=true;
+     var prev=localStorage.getItem('kindle_open_count');
+     var prevTime=localStorage.getItem('kindle_last_open');
+     count=prev ? (parseInt(prev,10)||0) : 0;
+     if (prevTime) last=prevTime;
+     count=count+1;
+     localStorage.setItem('kindle_open_count', String(count));
+     localStorage.setItem('kindle_last_open', new Date().toString());
+   }
+ } catch(e){ lsOK=false; }
+ if (lsOK) {
+   storageEl.appendChild(document.createTextNode('localStorage works. This page has been opened '+count+' time(s) on this device.'));
+   var br=document.createElement('div'); br.className='note'; br.appendChild(document.createTextNode('Previous open: '+last)); storageEl.appendChild(br);
+   add('localStorage:', 'WORKS (open #'+count+')');
+ } else {
+   storageEl.appendChild(document.createTextNode('localStorage is NOT available. Data will not persist.'));
+   add('localStorage:', 'NOT AVAILABLE');
+ }
+ (function(){ var rb=document.getElementById('resetbtn'); if(rb){ rb.onclick=function(){ try{ localStorage.removeItem('kindle_open_count'); localStorage.removeItem('kindle_last_open'); }catch(e){} alert('Counter reset. Reload the page.'); }; } })();
+
+ // Section 4: tap
+ var taps=0, tapEvents={};
+ var tb=document.getElementById('tapbox');
+ var ti=document.getElementById('tapinfo');
+ function onTap(type,x,y){
+   taps++; tapEvents[type]=(tapEvents[type]||0)+1;
+   tb.innerHTML=''; tb.appendChild(document.createTextNode('Tapped! ('+type+') at '+x+','+y));
+   var list=[]; for (var k in tapEvents){ if(tapEvents.hasOwnProperty(k)){ list.push(k+': '+tapEvents[k]); } }
+   ti.innerHTML=''; ti.appendChild(document.createTextNode('Total taps: '+taps+'  -  events seen: '+list.join('  ')));
+ }
+ function bind(type){
+   var handler=function(ev){
+     var x='?',y='?';
+     if (ev.touches && ev.touches[0]){ x=Math.round(ev.touches[0].clientX); y=Math.round(ev.touches[0].clientY); }
+     else if (ev.changedTouches && ev.changedTouches[0]){ x=Math.round(ev.changedTouches[0].clientX); y=Math.round(ev.changedTouches[0].clientY); }
+     else if (ev.clientX!=null){ x=Math.round(ev.clientX); y=Math.round(ev.clientY); }
+     onTap(type,x,y);
+   };
+   if (tb.addEventListener){ tb.addEventListener(type,handler,false); }
+   else if (tb.attachEvent){ tb.attachEvent('on'+type,handler); }
+ }
+ bind('touchstart'); bind('click');
+
+ // Section 6: swatches + canvas
+ var sw=document.getElementById('swatches');
+ var levels=[0,10,20,30,40,50,60,70,80,90,100];
+ for (var i=0;i<levels.length;i++){
+   var v=Math.round(255*levels[i]/100);
+   var d=document.createElement('span'); d.className='swatch';
+   d.style.backgroundColor='rgb('+v+','+v+','+v+')';
+   sw.appendChild(d);
+ }
+ try {
+   var cv=document.getElementById('cv'); var ctx=cv.getContext('2d');
+   var grad=ctx.createLinearGradient(0,0,300,0);
+   grad.addColorStop(0,'#000'); grad.addColorStop(1,'#fff');
+   ctx.fillStyle=grad; ctx.fillRect(0,0,300,60);
+   for (var s=0;s<16;s++){ var g=Math.round(s*255/15); ctx.fillStyle='rgb('+g+','+g+','+g+')'; ctx.fillRect(s*300/16,60,300/16,20); }
+   add('canvas drew:', 'YES');
+ } catch(e){ add('canvas drew:', 'NO'); }
+
+ // Section 7: CSS
+ var css=document.getElementById('cssfeatures');
+ function cssSupports(prop,val){
+   try {
+     if (window.CSS && CSS.supports){ return CSS.supports(prop,val); }
+     var el=document.createElement('div'); el.style[prop]=val; return el.style[prop]!=='' && el.style[prop]!=null;
+   } catch(e){ return false; }
+ }
+ function cssRow(label,b){ css.appendChild(rowHTML(label,yesno(b))); add(label,yesno(b)); }
+ cssRow('Flexbox (display:flex):', cssSupports('display','flex'));
+ cssRow('CSS Grid (display:grid):', cssSupports('display','grid'));
+ cssRow('border-radius:', cssSupports('borderRadius','5px'));
+ cssRow('box-shadow:', cssSupports('boxShadow','0 0 1px #000'));
+ cssRow('position:sticky:', cssSupports('position','sticky'));
+ cssRow('CSS.supports available:', !!(window.CSS && CSS.supports));
+
+ // Section 8: network
+ (function(){
+   var fb=document.getElementById('fetchbtn'); var fr=document.getElementById('fetchresult');
+   if (fb){ fb.onclick=function(){
+     fr.innerHTML=''; fr.appendChild(document.createTextNode('Trying...'));
+     try {
+       var xhr=new XMLHttpRequest();
+       xhr.open('GET','https://worldtimeapi.org/api/timezone/Etc/UTC',true);
+       xhr.onreadystatechange=function(){ if(xhr.readyState===4){ fr.innerHTML=''; fr.appendChild(document.createTextNode('HTTP status '+xhr.status+'. First 120 chars: '+String(xhr.responseText).substring(0,120))); } };
+       xhr.onerror=function(){ fr.innerHTML=''; fr.appendChild(document.createTextNode('XHR error (blocked or no network).')); };
+       xhr.send();
+     } catch(e){ fr.innerHTML=''; fr.appendChild(document.createTextNode('XHR threw: '+String(e))); }
+   }; }
+   var wb=document.getElementById('wsbtn'); var wr=document.getElementById('wsresult');
+   if (wb){ wb.onclick=function(){
+     wr.innerHTML='';
+     if (typeof WebSocket==='undefined'){ wr.appendChild(document.createTextNode('WebSocket is not supported on this browser.')); return; }
+     wr.appendChild(document.createTextNode('Trying...'));
+     try {
+       var ws=new WebSocket('wss://echo.websocket.events');
+       var done=false;
+       var t=setTimeout(function(){ if(!done){ done=true; wr.innerHTML=''; wr.appendChild(document.createTextNode('No response in 8s - WebSocket likely blocked.')); try{ws.close();}catch(e){} } },8000);
+       ws.onopen=function(){ try{ ws.send('ping'); }catch(e){} };
+       ws.onmessage=function(m){ if(done)return; done=true; clearTimeout(t); wr.innerHTML=''; wr.appendChild(document.createTextNode('WebSocket WORKS. Echo: '+String(m.data).substring(0,60))); try{ws.close();}catch(e){} };
+       ws.onerror=function(){ if(done)return; done=true; clearTimeout(t); wr.innerHTML=''; wr.appendChild(document.createTextNode('WebSocket error - not supported/blocked.')); };
+     } catch(e){ wr.innerHTML=''; wr.appendChild(document.createTextNode('WebSocket threw: '+String(e))); }
+   }; }
+ })();
+
+ // Build summary
+ try {
+   var lines=['=== KINDLE CAPABILITY TEST RESULTS ==='];
+   for (var r=0;r<results.length;r++){ lines.push(results[r][0]+' '+results[r][1]); }
+   lines.push('');
+   lines.push('By eye, also tell me: Japanese lines OK? furigana OK? how many gray swatches? PNG smooth or banded? canvas + SVG visible?');
+   var sumEl=document.getElementById('summary'); sumEl.innerHTML=''; sumEl.appendChild(document.createTextNode(lines.join('\n')));
+ } catch(e){}
+})();
+</script>
+</body>
+</html>

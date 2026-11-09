@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photo e-ink test</title>
+<style>
+ body { margin:0; padding:0; background:#fff; color:#000; font-family:Helvetica,Arial,sans-serif; }
+ .intro { padding:18px; font-size:16px; line-height:1.5; }
+ .rule { border-top:3px solid #000; margin-top:18px; }
+ .lab { padding:14px 18px 8px; }
+ .lab b { font-size:19px; }
+ .lab span { display:block; font-size:13px; margin-top:3px; }
+ img { display:block; width:100%; height:auto; }
+ .cap { font-family:Georgia,serif; font-style:italic; font-size:13px; padding:10px 18px 30px; }
+ .cap b { font-style:normal; }
+</style>
+</head>
+<body>
+ <div class="intro"><b>Does a photo survive e-ink?</b> Same image, three treatments. Look hard at the <b>sky and the water</b> (smooth areas, where banding shows) and the <b>mountains</b> (fine detail). Tell me which — if any — looks good enough to keep. If none do, we drop the photo tile.</div>
+
+ <div class="rule"></div>
+ <div class="lab"><b>A · Plain grayscale</b><span>No pre-processing — the Kindle does its own 16-level reduction. This is the worst case for banding.</span></div>
+ <img src="assets/photo_gray.jpg" alt="plain grayscale">
+
+ <div class="rule"></div>
+ <div class="lab"><b>B · 16-level dither</b><span>We pre-dither at full panel resolution, so banding becomes fine texture instead of hard steps.</span></div>
+ <img src="assets/photo_dither16.png" alt="16-level dither">
+
+ <div class="rule"></div>
+ <div class="lab"><b>C · 1-bit halftone</b><span>Pure black &amp; white, newspaper style. Most "graphic", never bands.</span></div>
+ <img src="assets/photo_bw.png" alt="1-bit halftone">
+
+ <div class="cap"><b>Ansel Adams</b> — &ldquo;The Tetons and the Snake River,&rdquo; 1942. U.S. National Archives (public domain).</div>
+</body>
+</html>

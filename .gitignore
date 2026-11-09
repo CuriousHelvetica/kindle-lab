@@ -1,0 +1,8 @@
+# downloaded source images (scratch) and processing variants
+assets/_src/
+assets/photo_gray.jpg
+assets/photo_dither16.png
+assets/photo_bw.png
+__pycache__/
+*.pyc
+.DS_Store

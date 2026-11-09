@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kindle Network Diagnostic</title>
+<style>
+ body { background:#fff; color:#000; font-family: Georgia,'Times New Roman',serif; font-size:19px; line-height:1.5; margin:0; padding:16px; max-width:760px; }
+ h1 { font-size:24px; margin:0 0 4px; }
+ .sub { font-size:15px; margin-bottom:16px; }
+ .test { border:2px solid #000; padding:12px; margin:12px 0; }
+ .name { font-weight:bold; font-size:20px; }
+ .res { font-size:17px; margin-top:6px; }
+ .pass { font-weight:bold; }
+ .fail { font-weight:bold; text-decoration:line-through; }
+ pre { white-space:pre-wrap; word-wrap:break-word; border:2px solid #000; padding:12px; font-family:'Courier New',monospace; font-size:15px; }
+ button { font-size:19px; padding:10px 18px; border:2px solid #000; background:#fff; }
+</style>
+</head>
+<body>
+<h1>Kindle Network Diagnostic</h1>
+<div class="sub">Runs automatically. Give it ~15 seconds, then read the Summary back to me. Tap "Run again" if a test is stuck on "running".</div>
+
+<pre id="summary">Running tests...</pre>
+
+<div class="test"><div class="name">A. Same-origin fetch (our server)</div><div class="res" id="A">running...</div></div>
+<div class="test"><div class="name">B. Same-origin XHR (our server)</div><div class="res" id="B">running...</div></div>
+<div class="test"><div class="name">C. External image over HTTPS</div><div class="res" id="C">running...</div></div>
+<div class="test"><div class="name">D. External fetch with CORS (api.github.com)</div><div class="res" id="D">running...</div></div>
+
+<button id="again" type="button">Run again</button>
+
+<script>
+(function(){
+ var state = { A:'running', B:'running', C:'running', D:'running' };
+ function set(id, ok, detail){
+   state[id] = ok ? 'PASS' : 'FAIL';
+   var el = document.getElementById(id);
+   el.className = 'res ' + (ok ? 'pass' : 'fail');
+   el.innerHTML = '';
+   el.appendChild(document.createTextNode((ok ? 'PASS - ' : 'FAIL - ') + detail));
+   render();
+ }
+ function render(){
+   var lines = ['=== NETWORK DIAGNOSTIC ==='];
+   lines.push('A same-origin fetch: ' + state.A);
+   lines.push('B same-origin XHR:   ' + state.B);
+   lines.push('C external image:    ' + state.C);
+   lines.push('D external CORS fetch:' + state.D);
+   var s = document.getElementById('summary');
+   s.innerHTML = ''; s.appendChild(document.createTextNode(lines.join('\n')));
+ }
+ function run(){
+   state = { A:'running', B:'running', C:'running', D:'running' }; render();
+   var bust = '?t=' + (new Date().getTime());
+
+   // A: same-origin fetch
+   try {
+     if (typeof fetch !== 'undefined') {
+       fetch('ping.txt' + bust).then(function(r){ return r.text(); })
+         .then(function(t){ set('A', String(t).indexOf('pong') === 0, 'got "' + String(t).substring(0,20) + '"'); })
+         .catch(function(e){ set('A', false, 'fetch threw: ' + e); });
+     } else { set('A', false, 'no fetch API'); }
+   } catch(e){ set('A', false, 'threw: ' + e); }
+
+   // B: same-origin XHR
+   try {
+     var x = new XMLHttpRequest();
+     x.open('GET', 'ping.txt' + bust + '1', true);
+     x.onreadystatechange = function(){ if (x.readyState === 4){ set('B', x.status === 200 && String(x.responseText).indexOf('pong') === 0, 'status ' + x.status); } };
+     x.onerror = function(){ set('B', false, 'xhr error event'); };
+     x.send();
+   } catch(e){ set('B', false, 'threw: ' + e); }
+
+   // C: external image over HTTPS (no CORS needed to display)
+   try {
+     var img = new Image();
+     var cdone = false;
+     var ct = setTimeout(function(){ if(!cdone){ cdone=true; set('C', false, 'timeout 10s (no response)'); } }, 10000);
+     img.onload = function(){ if(cdone)return; cdone=true; clearTimeout(ct); set('C', true, 'image loaded (' + (img.width||'?') + 'x' + (img.height||'?') + ')'); };
+     img.onerror = function(){ if(cdone)return; cdone=true; clearTimeout(ct); set('C', false, 'image error (no net / TLS fail)'); };
+     img.src = 'https://www.google.com/favicon.ico' + bust;
+   } catch(e){ set('C', false, 'threw: ' + e); }
+
+   // D: external CORS fetch
+   try {
+     if (typeof fetch !== 'undefined') {
+       var dt = setTimeout(function(){ if(state.D==='running'){ set('D', false, 'timeout 10s'); } }, 10000);
+       fetch('https://api.github.com/zen' + bust).then(function(r){ return r.text(); })
+         .then(function(t){ clearTimeout(dt); set('D', true, 'got "' + String(t).substring(0,40) + '"'); })
+         .catch(function(e){ clearTimeout(dt); set('D', false, 'fetch threw: ' + e); });
+     } else { set('D', false, 'no fetch API'); }
+   } catch(e){ set('D', false, 'threw: ' + e); }
+ }
+ document.getElementById('again').onclick = run;
+ run();
+})();
+</script>
+</body>
+</html>
