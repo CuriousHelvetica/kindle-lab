@@ -190,6 +190,7 @@ TEMPLATE = Template(r"""<!DOCTYPE html>
  .greet{font-size:14px;letter-spacing:3px;text-transform:uppercase;}
  .bigdate{font-size:38px;font-weight:800;line-height:1.04;margin-top:3px;}
  .loc{font-size:14px;letter-spacing:2px;text-transform:uppercase;margin-top:6px;}
+ .upd{font-size:13px;margin-top:4px;}
  .wx{text-align:right;}
  .wx .t{font-size:46px;font-weight:800;line-height:1;}
  .wx .c{font-size:15px;margin-top:2px;}
@@ -232,6 +233,7 @@ TEMPLATE = Template(r"""<!DOCTYPE html>
    <div class="greet">$greet</div>
    <div class="bigdate">$bigdate</div>
    <div class="loc">$loc</div>
+   <div class="upd">Last updated $updated</div>
   </div>
   <div class="wx">
    <div class="t">$temp&deg;</div>
@@ -312,7 +314,7 @@ def main():
         launch_when=esc(lau["when"]), launch_cd=esc(lau.get("countdown", "")),
         headlines=r_headlines(data["news"]),
         photo_cap=cap, photo_alt=alt, stamp=NOW.strftime("%Y%m%d%H%M"),
-        updated=NOW.strftime("%-I:%M %p %Z"),
+        updated=NOW.strftime("%a %-d %b, %-I:%M %p %Z"),
     )
     with open(os.path.join(HERE, "index.html"), "w", encoding="utf-8") as f:
         f.write(out)
