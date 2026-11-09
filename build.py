@@ -135,7 +135,11 @@ def fetch_photo():
         try:
             raw = _get(p["url"], timeout=45)
             im = ImageOps.exif_transpose(Image.open(io.BytesIO(raw))).convert("L")  # grayscale (treatment A)
+            # Panel-native 1272 px wide (2x of 636 CSS px), but cap the height at 1400 px
+            # (~700 CSS px, one screen) so tall portraits don't fill two screens.
             w = 1272; h = round(w * im.height / im.width)
+            if h > 1400:
+                h = 1400; w = round(h * im.width / im.height)
             im = ImageOps.autocontrast(im.resize((w, h), Image.LANCZOS), cutoff=1)
             im.save(os.path.join(assets, "photo.jpg"), quality=88)
             return {"photographer": p["photographer"], "title": p["title"],
@@ -220,8 +224,7 @@ TEMPLATE = Template(r"""<!DOCTYPE html>
  .hd{margin:10px 0;}
  .hd .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;}
  .hd .ttl{font-size:17px;font-weight:600;line-height:1.3;}
- .photo{border:1px solid #000;}
- .photo img{display:block;width:100%;height:auto;}
+ .photo img{display:block;margin:0 auto;max-width:100%;height:auto;border:1px solid #000;}
  .cap{font-family:Georgia,serif;font-size:14px;padding:8px 2px 0;font-style:italic;}
  .cap b{font-style:normal;}
  .foot{margin-top:26px;border-top:1px solid #000;padding-top:8px;font-size:12px;letter-spacing:1px;text-transform:uppercase;display:flex;justify-content:space-between;}
@@ -259,7 +262,7 @@ TEMPLATE = Template(r"""<!DOCTYPE html>
  $headlines
 
  <h2>Photograph of the day</h2>
- <div class="photo"><img src="assets/photo.jpg?v=$stamp" alt="$photo_alt"></div>
+ <div class="photo"><img src="assets/photo.jpg?v=$stamp" $img_size alt="$photo_alt"></div>
  <div class="cap">$photo_cap</div>
 
  <div class="foot"><span>Updated $updated</span><span>Rebuilt daily &middot; GitHub Actions</span></div>
@@ -303,6 +306,12 @@ def main():
         alt = "%s, %s" % (esc(ph["photographer"]), esc(ph["title"]))
     else:
         cap, alt = "Photograph unavailable today.", "photograph"
+    # Display at half the pixel size (the image is 2x for the Kindle's devicePixelRatio).
+    try:
+        with Image.open(os.path.join(HERE, "assets", "photo.jpg")) as pim:
+            img_size = 'width="%d" height="%d"' % (pim.width // 2, pim.height // 2)
+    except Exception:
+        img_size = 'style="width:100%"'
 
     forecast = r_forecast(w["days"]) or "<div><div class='fw'>Forecast unavailable</div></div>"
     out = TEMPLATE.substitute(
@@ -313,7 +322,7 @@ def main():
         launch_pad=esc((lau.get("pad") or "") + ((" · " + lau["status"]) if lau.get("status") else "")),
         launch_when=esc(lau["when"]), launch_cd=esc(lau.get("countdown", "")),
         headlines=r_headlines(data["news"]),
-        photo_cap=cap, photo_alt=alt, stamp=NOW.strftime("%Y%m%d%H%M"),
+        photo_cap=cap, photo_alt=alt, img_size=img_size, stamp=NOW.strftime("%Y%m%d%H%M"),
         updated=NOW.strftime("%a %-d %b, %-I:%M %p %Z"),
     )
     with open(os.path.join(HERE, "index.html"), "w", encoding="utf-8") as f:

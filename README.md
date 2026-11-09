@@ -31,7 +31,7 @@ The dashboard goes one step further than JSON: `build.py` renders a **fully pre-
 
 **Files:** `config.json` (your knobs) · `photos.json` (curated public-domain B&W rotation) · `build.py` (fetches everything, processes the photo, renders the page) · `index.html` + `data.json` + `assets/photo.jpg` (generated — do not hand-edit) · `.github/workflows/update.yml` (the scheduled job). `mockup.html`, `kindle-test.html`, `net-test.html`, `photo-test.html` are dev/reference pages.
 
-**Data sources (all keyless):** weather = Open-Meteo · stocks = Yahoo Finance chart API · next launch = The Space Devs Launch Library 2 · headlines = Google News RSS per topic · photo = daily rotation from `photos.json`, converted to grayscale (treatment **A**, chosen on-device) at the panel's native 1272 px.
+**Data sources (all keyless):** weather = Open-Meteo · stocks = Yahoo Finance chart API · next launch = The Space Devs Launch Library 2 · headlines = Google News RSS per topic · photo = daily rotation from `photos.json` (31 public-domain B&W masters — Adams, Lange, Stieglitz, Steichen, Strand, Atget, Cameron, Le Gray, Curtis, Hine, Evans, Hurley, Cazneaux and more — so about a month without repeats; list order = day order, arranged so no photographer appears two days running), converted to grayscale (treatment **A**, chosen on-device) at the panel's native 1272 px, with height capped at 1400 px so tall portraits fit one screen. If a photo fails to download, the build falls back to the next one in the list.
 
 **Run locally:**
 
@@ -40,7 +40,7 @@ The dashboard goes one step further than JSON: `build.py` renders a **fully pre-
     python build.py        # add LL_BASE=https://lldev.thespacedevs.com to dodge launch rate limits while testing
     python3 -m http.server 8000 --bind 0.0.0.0   # open http://<mac-ip>:8000/index.html on the Kindle
 
-**Customize:** edit `config.json` — add a ticker to `tickers`, change the city `latitude`/`longitude`/`timezone`, or adjust `news` topics and `headlines_per_topic`. Add more photos to `photos.json`. Rebuild to apply.
+**Customize:** edit `config.json` — add a ticker to `tickers`, change the city `latitude`/`longitude`/`timezone`, or adjust `news` topics and `headlines_per_topic`. Add more photos to `photos.json` (use a `commons.wikimedia.org/wiki/Special:FilePath/<file>?width=1600` URL; Wikimedia files occasionally get renamed, which breaks a link — two did on 2026-11-10). Rebuild to apply.
 
 **Deploy (when ready):** push this folder to a public `kindle-lab` repo → enable GitHub Pages (Deploy from branch: `main` / root) → the Action rebuilds and commits once a day. Bookmark `https://<user>.github.io/kindle-lab/index.html` on the Kindle. No secrets required.
 
