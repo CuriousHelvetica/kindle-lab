@@ -31,7 +31,7 @@ jobs:
         run: |
           git config user.name "kindle-lab-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html data.json assets/photo.jpg
+          git add -A index.html data.json assets   # -A also stages removal of the old assets/photo.jpg
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else

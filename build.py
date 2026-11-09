@@ -124,29 +124,66 @@ def fetch_news():
             out.append({"tag": t["tag"], "items": []})
     return out
 
+PHOTO_DIR = os.path.join(HERE, "assets", "photos")
+
+def photo_file(p):
+    """Stable file name for a photos.json entry, e.g. 'ansel-adams--the-tetons-and-the-snake-river.jpg'."""
+    import re, unicodedata
+    def slug(t):
+        t = unicodedata.normalize("NFKD", t).encode("ascii", "ignore").decode()
+        return re.sub(r"[^a-z0-9]+", "-", t.lower()).strip("-")[:60].strip("-")
+    return slug(p["photographer"]) + "--" + slug(p["title"]) + ".jpg"
+
+def process_photo(p):
+    """Download one photo from its source, convert for e-ink, store it in assets/photos/."""
+    raw = _get(p["url"], timeout=45)
+    im = ImageOps.exif_transpose(Image.open(io.BytesIO(raw))).convert("L")  # grayscale (treatment A)
+    # Panel-native 1272 px wide (2x of 636 CSS px), but cap the height at 1400 px
+    # (~700 CSS px, one screen) so tall portraits don't fill two screens.
+    w = 1272; h = round(w * im.height / im.width)
+    if h > 1400:
+        h = 1400; w = round(h * im.width / im.height)
+    im = ImageOps.autocontrast(im.resize((w, h), Image.LANCZOS), cutoff=1)
+    os.makedirs(PHOTO_DIR, exist_ok=True)
+    im.save(os.path.join(PHOTO_DIR, photo_file(p)), quality=88)
+
+def load_photos():
+    with open(os.path.join(HERE, "photos.json"), encoding="utf-8") as f:
+        return json.load(f)
+
 def fetch_photo():
-    photos = json.load(open(os.path.join(HERE, "photos.json"), encoding="utf-8"))
-    assets = os.path.join(HERE, "assets")
-    os.makedirs(os.path.join(assets, "_src"), exist_ok=True)
+    """Pick today's photo. All photos are pre-processed and stored in assets/photos/;
+    one that isn't (newly added to photos.json) is downloaded once and stored."""
+    photos = load_photos()
     start = NOW.toordinal() % len(photos)
     order = list(range(start, len(photos))) + list(range(0, start))
     for i in order:
         p = photos[i]
         try:
-            raw = _get(p["url"], timeout=45)
-            im = ImageOps.exif_transpose(Image.open(io.BytesIO(raw))).convert("L")  # grayscale (treatment A)
-            # Panel-native 1272 px wide (2x of 636 CSS px), but cap the height at 1400 px
-            # (~700 CSS px, one screen) so tall portraits don't fill two screens.
-            w = 1272; h = round(w * im.height / im.width)
-            if h > 1400:
-                h = 1400; w = round(h * im.width / im.height)
-            im = ImageOps.autocontrast(im.resize((w, h), Image.LANCZOS), cutoff=1)
-            im.save(os.path.join(assets, "photo.jpg"), quality=88)
+            if not os.path.exists(os.path.join(PHOTO_DIR, photo_file(p))):
+                process_photo(p)
             return {"photographer": p["photographer"], "title": p["title"],
-                    "year": p.get("year", ""), "credit": p.get("credit", "")}
+                    "year": p.get("year", ""), "credit": p.get("credit", ""), "file": photo_file(p)}
         except Exception as e:
             sys.stderr.write("photo '%s' failed: %s\n" % (p.get("title"), e))
-    return None  # keep any existing photo.jpg
+    return None
+
+def cache_all_photos():
+    """One-off / maintenance: download and process every photo not yet stored."""
+    import time
+    photos = load_photos(); ok = 0
+    for p in photos:
+        if os.path.exists(os.path.join(PHOTO_DIR, photo_file(p))):
+            ok += 1; continue
+        for attempt in range(3):
+            try:
+                time.sleep(3)  # be polite to Wikimedia (it rate-limits)
+                process_photo(p); ok += 1
+                print("stored", photo_file(p)); break
+            except Exception as e:
+                sys.stderr.write("photo '%s' attempt %d failed: %s\n" % (p["title"], attempt + 1, e))
+                time.sleep(20)
+    print("%d of %d photos stored in assets/photos/" % (ok, len(photos)))
 
 # ---------- rendering ----------
 def r_forecast(days):
@@ -262,7 +299,7 @@ TEMPLATE = Template(r"""<!DOCTYPE html>
  $headlines
 
  <h2>Photograph of the day</h2>
- <div class="photo"><img src="assets/photo.jpg?v=$stamp" $img_size alt="$photo_alt"></div>
+ <div class="photo">$photo_html</div>
  <div class="cap">$photo_cap</div>
 
  <div class="foot"><span>Updated $updated</span><span>Rebuilt daily &middot; GitHub Actions</span></div>
@@ -284,15 +321,6 @@ def main():
     except Exception as e: sys.stderr.write("launch failed: %s\n" % e); data["launch"] = None
     data["news"] = fetch_news()
     data["photo"] = fetch_photo()
-    if data["photo"] is None:
-        # Download failed, so the previous photo.jpg is still on the page: keep its caption too.
-        try:
-            with open(os.path.join(HERE, "data.json"), encoding="utf-8") as f:
-                old = json.load(f).get("photo")
-            if old and os.path.exists(os.path.join(HERE, "assets", "photo.jpg")):
-                data["photo"] = old
-        except Exception:
-            pass
 
     with open(os.path.join(HERE, "data.json"), "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2)
@@ -301,17 +329,18 @@ def main():
                             "today_hi": "—", "today_lo": "—", "days": []}
     lau = data["launch"] or {"name": "No upcoming launch found", "pad": "", "when": "—", "countdown": ""}
     ph = data["photo"]
-    if ph:
+    if ph and os.path.exists(os.path.join(PHOTO_DIR, ph["file"])):
         cap = "<b>%s</b> &mdash; &ldquo;%s,&rdquo; %s. %s." % (esc(ph["photographer"]), esc(ph["title"]), esc(ph["year"]), esc(ph["credit"]))
         alt = "%s, %s" % (esc(ph["photographer"]), esc(ph["title"]))
     else:
-        cap, alt = "Photograph unavailable today.", "photograph"
+        ph, cap, alt = None, "Photograph unavailable today.", "photograph"
     # Display at half the pixel size (the image is 2x for the Kindle's devicePixelRatio).
     try:
-        with Image.open(os.path.join(HERE, "assets", "photo.jpg")) as pim:
+        with Image.open(os.path.join(PHOTO_DIR, ph["file"])) as pim:
             img_size = 'width="%d" height="%d"' % (pim.width // 2, pim.height // 2)
+        photo_html = '<img src="assets/photos/%s" %s alt="%s">' % (esc(ph["file"]), img_size, alt)
     except Exception:
-        img_size = 'style="width:100%"'
+        photo_html = ""
 
     forecast = r_forecast(w["days"]) or "<div><div class='fw'>Forecast unavailable</div></div>"
     out = TEMPLATE.substitute(
@@ -322,12 +351,18 @@ def main():
         launch_pad=esc((lau.get("pad") or "") + ((" · " + lau["status"]) if lau.get("status") else "")),
         launch_when=esc(lau["when"]), launch_cd=esc(lau.get("countdown", "")),
         headlines=r_headlines(data["news"]),
-        photo_cap=cap, photo_alt=alt, img_size=img_size, stamp=NOW.strftime("%Y%m%d%H%M"),
+        photo_cap=cap, photo_html=photo_html,
         updated=NOW.strftime("%a %-d %b, %-I:%M %p %Z"),
     )
     with open(os.path.join(HERE, "index.html"), "w", encoding="utf-8") as f:
         f.write(out)
+    legacy = os.path.join(HERE, "assets", "photo.jpg")  # pre-2026-11-10 single-photo file, no longer used
+    if os.path.exists(legacy):
+        os.remove(legacy)
     print("Built index.html and data.json at", NOW.isoformat())
 
 if __name__ == "__main__":
-    main()
+    if "--cache-photos" in sys.argv:
+        cache_all_photos()
+    else:
+        main()
