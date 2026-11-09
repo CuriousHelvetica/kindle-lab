@@ -1,23 +1,23 @@
 {
-  "generated": "2026-11-09T21:52:49.284282+11:00",
+  "generated": "2026-11-10T09:41:51.804261+11:00",
   "weather": {
-    "temp": 12,
-    "feels": 11,
+    "temp": 19,
+    "feels": 18,
     "cond": "Clear",
-    "today_hi": 18,
-    "today_lo": 10,
+    "today_hi": 25,
+    "today_lo": 9,
     "days": [
       {
-        "label": "Tue 10",
-        "cond": "Partly cloudy",
-        "hi": 24,
-        "lo": 9
+        "label": "Wed 11",
+        "cond": "Drizzle",
+        "hi": 28,
+        "lo": 13
       },
       {
-        "label": "Wed 11",
-        "cond": "Heavy drizzle",
-        "hi": 28,
-        "lo": 12
+        "label": "Thu 12",
+        "cond": "Light drizzle",
+        "hi": 22,
+        "lo": 17
       }
     ]
   },
@@ -25,56 +25,57 @@
     {
       "sym": "AAPL",
       "name": "Apple Inc.",
-      "price": 342.37,
-      "chg": -1.8000134277343705,
-      "pct": -0.5230012370361024
+      "price": 350.69,
+      "chg": 8.320004882812498,
+      "pct": 2.430120922239316
     },
     {
       "sym": "TSLA",
       "name": "Tesla, Inc.",
-      "price": 358.22,
-      "chg": 14.529997558593777,
-      "pct": 4.227646267095277
+      "price": 378.05,
+      "chg": 19.829998779296886,
+      "pct": 5.535703956150515
     },
     {
       "sym": "SPCX",
       "name": "Space Exploration Technologies",
-      "price": 134.27,
-      "chg": 10.649997253417979,
-      "pct": 8.615108410287139
+      "price": 142.07,
+      "chg": 7.799995727539056,
+      "pct": 5.8091870703387265
     }
   ],
   "launch": {
     "name": "Falcon 9 Block 5 | USSF-627",
     "status": "Go for Launch",
     "pad": "Vandenberg SFB, CA, USA",
-    "when": "Tue 10 Nov, 2:03 PM",
-    "countdown": "in ~16 hours"
+    "when": "Wed 11 Nov, 1:49 PM",
+    "countdown": "in ~28 hours"
   },
   "news": [
     {
       "tag": "Tesla",
       "items": [
-        "Tesla's quiet EV software update is unplugging Australian homes from their batteries on wheels"
+        "Musk axes Tesla's Cybertruck in favour of self-driving taxis"
       ]
     },
     {
       "tag": "SpaceX",
       "items": [
-        "Elon Musk\u2019s Starlink pushes for Australian mobile licence"
+        "SpaceX will launch epic double-catch Starship Flight 15 test mission on Nov. 13"
       ]
     },
     {
       "tag": "AI & Robotics",
       "items": [
-        "What Does XTEND AI Robotics, Inc.'s (NYSE:XTND) $8.3 Million Defense Order Include?"
+        "AI agents test and improve robot code in virtual worlds before deployment"
       ]
     }
   ],
   "photo": {
-    "photographer": "Dorothea Lange",
-    "title": "Migrant Mother",
-    "year": "1936",
-    "credit": "U.S. Library of Congress (public domain)"
+    "photographer": "Edward S. Curtis",
+    "title": "The Vanishing Race \u2014 Navaho",
+    "year": "1904",
+    "credit": "U.S. Library of Congress (public domain)",
+    "file": "edward-s-curtis--the-vanishing-race-navaho.jpg"
   }
 }
