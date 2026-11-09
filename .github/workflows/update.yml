@@ -2,7 +2,9 @@ name: Update dashboard
 
 on:
   schedule:
-    - cron: "0 */3 * * *"   # every 3 hours (UTC); GitHub may delay a few minutes
+    # Daily at 21:15 UTC = 8:15 AM AEDT / 7:15 AM AEST. Always after the US close
+    # (20:00 or 21:00 UTC), so "at last close" prices are final. GitHub may start late.
+    - cron: "15 21 * * *"
   workflow_dispatch: {}
 
 permissions:

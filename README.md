@@ -7,7 +7,7 @@ Account: GitHub `CuriousHelvetica`. Owner uses the Kindle in bed, indoors, on Wi
 ## Status
 
 - **Phase 0 — browser capability test: DONE** (tested on-device 2026-11-09 via `kindle-test.html` + `net-test.html`). Verdict below. The big surprise: the browser engine is **modern**, not the ancient WebKit its user agent claims.
-- **Phase 1 — morning dashboard: LIVE (2026-11-09).** A pre-rendered static page from live data (weather, AAPL/TSLA/SPCX, next SpaceX launch, headlines, daily B&W photo). Deployed to GitHub Pages at **https://curioushelvetica.github.io/kindle-lab/index.html** (the Kindle bookmark); the scheduled Action rebuilds it every 3 hours. See _The dashboard_ below.
+- **Phase 1 — morning dashboard: LIVE (2026-11-09).** A pre-rendered static page from live data (weather, AAPL/TSLA/SPCX, next SpaceX launch, headlines, daily B&W photo). Deployed to GitHub Pages at **https://curioushelvetica.github.io/kindle-lab/index.html** (the Kindle bookmark); the scheduled Action rebuilds it once a day at 21:15 UTC (8:15 AM AEDT / 7:15 AM AEST), just after the US market close. See _The dashboard_ below.
 
 ## Confirmed device capabilities (PW 12th gen, fw 5.20.1.0.2, Experimental Browser)
 
@@ -42,7 +42,7 @@ The dashboard goes one step further than JSON: `build.py` renders a **fully pre-
 
 **Customize:** edit `config.json` — add a ticker to `tickers`, change the city `latitude`/`longitude`/`timezone`, or adjust `news` topics and `headlines_per_topic`. Add more photos to `photos.json`. Rebuild to apply.
 
-**Deploy (when ready):** push this folder to a public `kindle-lab` repo → enable GitHub Pages (Deploy from branch: `main` / root) → the Action rebuilds and commits every 3 hours. Bookmark `https://<user>.github.io/kindle-lab/index.html` on the Kindle. No secrets required.
+**Deploy (when ready):** push this folder to a public `kindle-lab` repo → enable GitHub Pages (Deploy from branch: `main` / root) → the Action rebuilds and commits once a day. Bookmark `https://<user>.github.io/kindle-lab/index.html` on the Kindle. No secrets required.
 
 ## Serve it to the Kindle
 

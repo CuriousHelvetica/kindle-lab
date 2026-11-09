@@ -260,7 +260,7 @@ TEMPLATE = Template(r"""<!DOCTYPE html>
  <div class="photo"><img src="assets/photo.jpg?v=$stamp" alt="$photo_alt"></div>
  <div class="cap">$photo_cap</div>
 
- <div class="foot"><span>Updated $updated</span><span>Rebuilt every 3 hours &middot; GitHub Actions</span></div>
+ <div class="foot"><span>Updated $updated</span><span>Rebuilt daily &middot; GitHub Actions</span></div>
 </body>
 </html>
 """)
