@@ -1,8 +1,8 @@
 {
-  "generated": "2026-11-09T21:19:13.291388+11:00",
+  "generated": "2026-11-09T21:36:18.097401+11:00",
   "weather": {
     "temp": 13,
-    "feels": 12,
+    "feels": 11,
     "cond": "Clear",
     "today_hi": 18,
     "today_lo": 10,
@@ -45,8 +45,8 @@
     }
   ],
   "launch": {
-    "name": "Falcon 9 Block 5 | USSF-xxx (\"R-5\")",
-    "status": "To Be Confirmed",
+    "name": "Falcon 9 Block 5 | USSF-627",
+    "status": "Go for Launch",
     "pad": "Vandenberg SFB, CA, USA",
     "when": "Tue 10 Nov, 2:03 PM",
     "countdown": "in ~16 hours"
