@@ -1,9 +1,9 @@
 {
-  "generated": "2026-11-11T12:12:40.243934+11:00",
+  "generated": "2026-11-11T12:45:03.945302+11:00",
   "weather": {
-    "temp": 27,
+    "temp": 29,
     "feels": 30,
-    "cond": "Mainly clear",
+    "cond": "Overcast",
     "today_hi": 29,
     "today_lo": 13,
     "days": [
@@ -26,15 +26,15 @@
       "sym": "AAPL",
       "name": "Apple Inc.",
       "price": 348.51,
-      "chg": 6.140004882812491,
-      "pct": 1.793382881204549
+      "chg": -2.180002441406259,
+      "pct": -0.6216323323247566
     },
     {
       "sym": "TSLA",
       "name": "Tesla, Inc.",
       "price": 379.78,
-      "chg": 21.559998779296848,
-      "pct": 6.01864739708197
+      "chg": 1.7300122070312227,
+      "pct": 0.45761467078227447
     },
     {
       "sym": "SPCX",
@@ -49,7 +49,7 @@
     "status": "Go for Launch",
     "pad": "Vandenberg SFB, CA, USA",
     "when": "Thu 12 Nov, 1:35 PM",
-    "countdown": "in ~25 hours"
+    "countdown": "in ~24 hours"
   },
   "news": [
     {
