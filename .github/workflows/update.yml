@@ -1,12 +1,10 @@
 name: Update dashboard
 
 on:
-  schedule:
-    # Daily at 4:10 PM New York time = 10 min after the US market close, all year
-    # (GitHub handles US daylight saving). In Sydney that lands between 6:10 and 8:10 AM.
-    # GitHub may start scheduled runs late.
-    - cron: "10 16 * * *"
-      timezone: "America/New_York"
+  # No GitHub `schedule:` trigger on purpose — GitHub's scheduler proved unreliable on this
+  # repo (missed two mornings, then fired 4 hours late on 2026-11-11). Instead an outside
+  # timer (cron-job.org, daily 16:10 America/New_York = 10 min after the US close) starts
+  # this workflow through the API. See README "Daily trigger". Manual runs: Actions tab.
   workflow_dispatch: {}
 
 permissions:

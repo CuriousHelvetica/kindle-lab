@@ -7,7 +7,7 @@ Account: GitHub `CuriousHelvetica`. Owner uses the Kindle in bed, indoors, on Wi
 ## Status
 
 - **Phase 0 — browser capability test: DONE** (tested on-device 2026-11-09 via `kindle-test.html` + `net-test.html`). Verdict below. The big surprise: the browser engine is **modern**, not the ancient WebKit its user agent claims.
-- **Phase 1 — morning dashboard: LIVE (2026-11-09).** A pre-rendered static page from live data (weather, AAPL/TSLA/SPCX, next SpaceX launch, headlines, daily B&W photo). Deployed to GitHub Pages at **https://curioushelvetica.github.io/kindle-lab/index.html** (the Kindle bookmark); the scheduled Action rebuilds it once a day at 4:10 PM New York time (10 min after the US close; 6:10–8:10 AM in Sydney depending on the season), using GitHub's `timezone: America/New_York` cron option so US daylight saving is handled automatically. See _The dashboard_ below.
+- **Phase 1 — morning dashboard: LIVE (2026-11-09).** A pre-rendered static page from live data (weather, AAPL/TSLA/SPCX, next SpaceX launch, headlines, daily B&W photo). Deployed to GitHub Pages at **https://curioushelvetica.github.io/kindle-lab/index.html** (the Kindle bookmark); an outside timer (cron-job.org) starts the GitHub Action once a day at 4:10 PM New York time (10 min after the US close; 6:10–8:10 AM in Sydney depending on the season). See _Daily trigger_ below.
 
 ## Confirmed device capabilities (PW 12th gen, fw 5.20.1.0.2, Experimental Browser)
 
@@ -23,13 +23,13 @@ Account: GitHub `CuriousHelvetica`. Owner uses the Kindle in bed, indoors, on Wi
 
 ## Validated architecture
 
-Public GitHub Pages repo hosts a static page. A **scheduled GitHub Action pre-bakes data** (weather, stocks, headlines, photo-of-the-day) into JSON/HTML committed next to the page; the Kindle just opens a bookmark and same-origin-fetches it. The Mac need not stay on. Keep private data (calendar) off the public page, or serve those parts from the Mac Mini. Direct third-party fetch from the Kindle is possible for CORS-friendly public APIs, but pre-baking is more robust and keeps any API keys server-side (in Action secrets, never on the page).
+Public GitHub Pages repo hosts a static page. A **GitHub Action, started daily by an outside timer, pre-bakes data** (weather, stocks, headlines, photo-of-the-day) into JSON/HTML committed next to the page; the Kindle just opens a bookmark and same-origin-fetches it. The Mac need not stay on. Keep private data (calendar) off the public page, or serve those parts from the Mac Mini. Direct third-party fetch from the Kindle is possible for CORS-friendly public APIs, but pre-baking is more robust and keeps any API keys server-side (in Action secrets, never on the page).
 
 The dashboard goes one step further than JSON: `build.py` renders a **fully pre-rendered `index.html`** with the data already baked in, so the Kindle loads plain HTML with no client-side fetching — the most robust option for the device.
 
 ## The dashboard (build & deploy)
 
-**Files:** `config.json` (your knobs) · `photos.json` (curated public-domain B&W rotation) · `build.py` (fetches everything, processes the photo, renders the page) · `index.html` + `data.json` (generated — do not hand-edit) · `assets/photos/` (all rotation photos, pre-processed and stored) · `.github/workflows/update.yml` (the scheduled job). `mockup.html`, `kindle-test.html`, `net-test.html`, `photo-test.html` are dev/reference pages.
+**Files:** `config.json` (your knobs) · `photos.json` (curated public-domain B&W rotation) · `build.py` (fetches everything, processes the photo, renders the page) · `index.html` + `data.json` (generated — do not hand-edit) · `assets/photos/` (all rotation photos, pre-processed and stored) · `.github/workflows/update.yml` (the build job; started by the outside timer). `mockup.html`, `kindle-test.html`, `net-test.html`, `photo-test.html` are dev/reference pages.
 
 **Data sources (all keyless):** weather = Open-Meteo · stocks = Yahoo Finance chart API · next launch = The Space Devs Launch Library 2 · headlines = Google News RSS per topic · photo = daily rotation from `photos.json` (31 public-domain B&W masters — Adams, Lange, Stieglitz, Steichen, Strand, Atget, Cameron, Le Gray, Curtis, Hine, Evans, Hurley, Cazneaux and more — so about a month without repeats; list order = day order, arranged so no photographer appears two days running), converted to grayscale (treatment **A**, chosen on-device) at the panel's native 1272 px, with height capped at 1400 px so tall portraits fit one screen. **All photos are pre-processed and stored in `assets/photos/` (~12 MB)**, so the daily build needs no download — it just points the page at today's file. A photo listed in `photos.json` but not yet stored is downloaded and stored once by the next build (or run `python build.py --cache-photos` to fetch all missing ones now).
 
@@ -42,7 +42,7 @@ The dashboard goes one step further than JSON: `build.py` renders a **fully pre-
 
 **Customize:** edit `config.json` — add a ticker to `tickers`, change the city `latitude`/`longitude`/`timezone`, or adjust `news` topics and `headlines_per_topic`. Add more photos to `photos.json` (use a `commons.wikimedia.org/wiki/Special:FilePath/<file>?width=1600` URL), then run `python build.py --cache-photos` and commit `assets/photos/` (or just let the next daily build fetch it). Stored files are named from photographer + title, so the source link only matters once — Wikimedia renames files occasionally (two links broke on 2026-11-10). To re-process a photo, delete its file and re-run `--cache-photos`. Rebuild to apply.
 
-**Deploy (when ready):** push this folder to a public `kindle-lab` repo → enable GitHub Pages (Deploy from branch: `main` / root) → the Action rebuilds and commits once a day. Bookmark `https://<user>.github.io/kindle-lab/index.html` on the Kindle. No secrets required.
+**Deploy (when ready):** push this folder to a public `kindle-lab` repo → enable GitHub Pages (Deploy from branch: `main` / root) → set up the daily trigger (below) → the Action rebuilds and commits once a day. Bookmark `https://<user>.github.io/kindle-lab/index.html` on the Kindle. No secrets in the repo.
 
 ## Serve it to the Kindle
 
@@ -69,6 +69,23 @@ The page builds a plain-text **Summary** block at the top to read back, plus by-
 4. Japanese flashcards with spaced repetition
 
 Interests: photography (esp. B&W), investments, AI/robotics, Tesla, SpaceX, chess.
+
+## Daily trigger (outside timer — set up 2026-11-11)
+
+**Why not GitHub's own schedule:** GitHub's `schedule:` trigger never fired on time for this repo — it skipped Tue 10 Nov and Wed 11 Nov mornings outright and then fired once 4 hours late. GitHub's docs say scheduled runs may be delayed or dropped under load. So the workflow has **no `schedule:` trigger**; only `workflow_dispatch`.
+
+**How it works now:** a free **cron-job.org** job (account owned by the user, job title "kindle-lab timer") sends one API call daily at **16:10 America/New_York** (the service handles US daylight saving), which starts the workflow. Success reply is `204 No Content`. The service emails the user if a call fails.
+
+- URL: `POST https://api.github.com/repos/CuriousHelvetica/kindle-lab/actions/workflows/update.yml/dispatches`
+- Headers: `Accept: application/vnd.github+json` · `Authorization: Bearer <token>` · `X-GitHub-Api-Version: 2022-11-28` · `Content-Type: application/json`
+- Body: `{"ref":"main"}`
+- Token: GitHub fine-grained personal access token "kindle-lab timer" — only the `kindle-lab` repo, permission **Actions: Read and write**. Stored only in cron-job.org, never in the repo.
+
+**Renewal dates:**
+- **Token expires 2027-11-10.** Before then: create a new token (same settings) at github.com/settings/personal-access-tokens and paste it into the cron-job.org job's Authorization header.
+- **API version `2022-11-28` is deprecated (since 2026-03-10) and sunsets 2028-03-10.** When renewing the token, also update the `X-GitHub-Api-Version` header to the current version listed at docs.github.com/en/rest/about-the-rest-api/api-versions.
+
+**Checking it worked:** the page's "Last updated" line (under the location) should read ~8:10 AM (summer) / ~6:10–7:10 AM (otherwise) on the current day. Runs also appear in the repo's Actions tab as `workflow_dispatch` events.
 
 ## Decisions & constraints
 
