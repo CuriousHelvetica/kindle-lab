@@ -1,23 +1,23 @@
 {
-  "generated": "2026-11-11T13:03:25.941917+11:00",
+  "generated": "2026-11-12T08:10:12.808876+11:00",
   "weather": {
-    "temp": 29,
-    "feels": 29,
-    "cond": "Overcast",
-    "today_hi": 29,
-    "today_lo": 13,
+    "temp": 20,
+    "feels": 20,
+    "cond": "Mainly clear",
+    "today_hi": 23,
+    "today_lo": 16,
     "days": [
       {
-        "label": "Thu 12",
-        "cond": "Partly cloudy",
-        "hi": 24,
+        "label": "Fri 13",
+        "cond": "Light drizzle",
+        "hi": 27,
         "lo": 16
       },
       {
-        "label": "Fri 13",
-        "cond": "Heavy drizzle",
-        "hi": 27,
-        "lo": 14
+        "label": "Sat 14",
+        "cond": "Thunderstorm, hail",
+        "hi": 32,
+        "lo": 18
       }
     ]
   },
@@ -25,42 +25,42 @@
     {
       "sym": "AAPL",
       "name": "Apple Inc.",
-      "price": 348.51,
-      "chg": -2.180002441406259,
-      "pct": -0.6216323323247566
+      "price": 355.63,
+      "chg": 7.1199902343749955,
+      "pct": 2.042980125352276
     },
     {
       "sym": "TSLA",
       "name": "Tesla, Inc.",
-      "price": 379.78,
-      "chg": 1.7300122070312227,
-      "pct": 0.45761467078227447
+      "price": 390.816,
+      "chg": 11.036001220703099,
+      "pct": 2.9058932161186553
     },
     {
       "sym": "SPCX",
       "name": "Space Exploration Technologies",
-      "price": 143.09,
-      "chg": 8.819995727539066,
-      "pct": 6.5688504110281505
+      "price": 139.75,
+      "chg": -3.339996337890625,
+      "pct": -2.334192762157605
     }
   ],
   "launch": {
     "name": "Falcon 9 Block 5 | USSF-627",
     "status": "Go for Launch",
     "pad": "Vandenberg SFB, CA, USA",
-    "when": "Thu 12 Nov, 1:35 PM",
-    "countdown": "in ~24 hours"
+    "when": "Thu 12 Nov, 1:36 PM",
+    "countdown": "in ~5 hours"
   },
   "news": [
     {
       "tag": "Tesla",
       "items": [
         {
-          "title": "Tesla tuner Unplugged offers to take over Cybertruck production",
-          "teaser": "Unplugged Performance, the biggest name in Tesla aftermarket tuning, wants to keep the Cybertruck alive. The company publicly offered on Tuesday to take the Cybertruck line off Tesla\u2019s hands, funded by a consortium of investors. It comes just four days after Elon Musk said Tesla would wind down Cybertruck production at Giga Texas around mid-2027, with the truck selling at roughly 12% of the 250,000 units a year Tesla planned for.",
-          "link": "https://electrek.co/2026/11/10/unplugged-performance-offers-take-over-tesla-cybertruck-production/",
+          "title": "Tesla extends Cybertruck production to late summer 2027 amid fan backlash",
+          "teaser": "Elon Musk now says Tesla will keep building the Cybertruck \u201cthrough the end of summer 2027\u201d to \u201cwork through more of the Cybertruck order backlog.\u201d That buys the electric pickup roughly two to three more months, five days after Tesla first announced it was killing it. The reprieve lands as a growing number of Tesla\u2019s own fans push back on the decision, and on what it says about Tesla\u2019s future as a company that sells cars to people.",
+          "link": "https://electrek.co/2026/11/11/tesla-extends-cybertruck-production-summer-2027-fan-backlash/",
           "source": "Electrek",
-          "age": "just now"
+          "age": "2h ago"
         }
       ]
     },
@@ -68,11 +68,11 @@
       "tag": "SpaceX",
       "items": [
         {
-          "title": "SpaceX moves Starship Flight 15 booster to launch pad for 'squeeze test' ahead of epic double-catch attempt (photos)",
-          "teaser": "SpaceX has moved its Starship Super Heavy booster to the pad to prep for the next test flight of the megarocket, a historic mission scheduled to launch this Friday (Nov. 13).",
-          "link": "https://www.space.com/space-exploration/launches-spacecraft/spacex-moves-starship-flight-15-booster-to-launch-pad-for-squeeze-test-ahead-of-epic-double-catch-attempt-photos",
-          "source": "Space.com",
-          "age": "3h ago"
+          "title": "SpaceX\u2019s $24B Starbase supercomputer plan slipped past a key roadblock",
+          "teaser": "SpaceX wants a Starbase tax break for a $24 billion gas plant and supercomputer campus.",
+          "link": "https://www.teslarati.com/spacexs-24b-starbase-supercomputer-plan-slipped-past-a-key-roadblock/",
+          "source": "Teslarati",
+          "age": "1h ago"
         }
       ]
     },
@@ -80,20 +80,20 @@
       "tag": "AI & Robotics",
       "items": [
         {
-          "title": "OpenAI acquires Odessia, travel startup created by Sonder founder",
-          "teaser": "OpenAI has not yet said what its plans are for the future of travel. But Sonder founder Francis Davidson is a well-known figure in the travel industry.",
-          "link": "https://techcrunch.com/2026/11/10/openai-acquires-odessia-travel-startup-created-by-sonder-founder/",
+          "title": "Why the data center you dread might never even be built",
+          "teaser": "The data center boom is running into serious real-world obstacles, from widespread local opposition and permitting delays to a scramble for electricity. Before those challenges even come into play, though, there\u2019s a more basic problem: A lot of the projects being announced may never get built in the first place. With billions of dollars in AI infrastructure",
+          "link": "https://techcrunch.com/video/why-the-data-center-you-dread-might-never-even-be-built/",
           "source": "TechCrunch",
-          "age": "4h ago"
+          "age": "just now"
         }
       ]
     }
   ],
   "photo": {
-    "photographer": "Frank Hurley",
-    "title": "The Endurance Trapped in Pack Ice",
-    "year": "1915",
-    "credit": "Public domain, via Wikimedia Commons",
-    "file": "frank-hurley--the-endurance-trapped-in-pack-ice.jpg"
+    "photographer": "Lewis Hine",
+    "title": "Sadie Pfeifer, Lancaster Cotton Mills",
+    "year": "1908",
+    "credit": "U.S. National Archives (public domain)",
+    "file": "lewis-hine--sadie-pfeifer-lancaster-cotton-mills.jpg"
   }
 }
