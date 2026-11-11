@@ -107,21 +107,98 @@ def fetch_launch():
             "when": local.strftime("%a %-d %b, %-I:%M %p") if local else "TBD",
             "countdown": _countdown(dt) if dt else ""}
 
+ATOM = "{http://www.w3.org/2005/Atom}"
+TEASER_MAX = 450  # characters — a teaser, not the article
+
+def _clean_text(s):
+    import re
+    s = re.sub(r"<[^>]+>", " ", s or "")
+    s = re.sub(r"\s+", " ", html.unescape(s)).strip()
+    s = re.sub(r"\s*The post .{0,300}? appeared first on .{0,80}?\.?\s*$", "", s)   # WordPress footer
+    s = re.sub(r"\s*(\[(…|\.\.\.)\]|Read More|[Mm]ore\s*(…|\.\.\.)|Continue reading.*)\s*$", "", s)
+    return s.strip()
+
+def _teaser(s):
+    """First 1-3 sentences, at most TEASER_MAX chars (some feeds put the whole article here)."""
+    import re
+    s = _clean_text(s)
+    if len(s) <= TEASER_MAX:
+        return s
+    out = ""
+    for sent in re.split(r"(?<=[.!?])\s+", s):
+        if len(out) + len(sent) + 1 > TEASER_MAX or out.count(". ") >= 2:
+            break
+        out = (out + " " + sent).strip()
+    return out or s[:TEASER_MAX].rsplit(" ", 1)[0] + "…"
+
+def _item_date(it):
+    from email.utils import parsedate_to_datetime
+    raw = it.findtext("pubDate") or it.findtext(ATOM + "updated") or it.findtext(ATOM + "published")
+    try:
+        d = parsedate_to_datetime(raw) if it.findtext("pubDate") else datetime.fromisoformat(raw.replace("Z", "+00:00"))
+        return d if d.tzinfo else d.replace(tzinfo=timezone.utc)
+    except Exception:
+        return None
+
+def _age(d):
+    if not d: return ""
+    h = int((datetime.now(timezone.utc) - d).total_seconds() // 3600)
+    return "just now" if h < 1 else ("%dh ago" % h if h < 48 else "%dd ago" % (h // 24))
+
+def _read_feed(f):
+    root = ET.fromstring(_get(f["url"], timeout=25))
+    items = root.findall(".//item") or root.findall(".//" + ATOM + "entry")
+    out = []
+    for it in items[:15]:
+        link = it.findtext("link")
+        if not link and it.find(ATOM + "link") is not None:
+            link = it.find(ATOM + "link").get("href")
+        title = _clean_text(it.findtext("title") or it.findtext(ATOM + "title"))
+        desc = it.findtext("description") or it.findtext(ATOM + "summary") or it.findtext(ATOM + "content") or ""
+        if title and link:
+            out.append({"title": title, "teaser": _teaser(desc), "link": link.strip(),
+                        "source": f["name"], "date": _item_date(it)})
+    return out
+
+def _google_news(t, n):
+    """Fallback: headline only (Google's feed has no teaser or direct link)."""
+    u = "https://news.google.com/rss/search?q=%s&hl=en-AU&gl=AU&ceid=AU:en" % urllib.parse.quote(t["query"])
+    root = ET.fromstring(_get(u, timeout=25))
+    out = []
+    for it in root.findall(".//item")[:n]:
+        title = (it.findtext("title") or "").strip()
+        out.append({"title": title.rsplit(" - ", 1)[0] if " - " in title else title,
+                    "teaser": "", "link": None, "source": it.findtext("source") or "", "age": ""})
+    return out
+
 def fetch_news():
-    out, n = [], CFG.get("headlines_per_topic", 1)
+    """Per topic: newest matching story across that topic's outlet feeds, with the outlet's
+    own teaser and a direct link. Falls back to a Google News headline if every feed fails."""
+    import re
+    out, n, used = [], CFG.get("headlines_per_topic", 1), set()
     for t in CFG["news"]:
-        try:
-            u = "https://news.google.com/rss/search?q=%s&hl=en-AU&gl=AU&ceid=AU:en" % urllib.parse.quote(t["query"])
-            root = ET.fromstring(_get(u, timeout=25))
-            items = root.findall(".//item")[:n]
-            heads = []
-            for it in items:
-                title = (it.findtext("title") or "").strip()
-                heads.append(title.rsplit(" - ", 1)[0] if " - " in title else title)
-            out.append({"tag": t["tag"], "items": heads})
-        except Exception as e:
-            sys.stderr.write("news %s failed: %s\n" % (t["tag"], e))
-            out.append({"tag": t["tag"], "items": []})
+        cands = []
+        for f in t.get("feeds", []):
+            try:
+                cands += _read_feed(f)
+            except Exception as e:
+                sys.stderr.write("news feed %s failed: %s\n" % (f["name"], e))
+        if t.get("match"):
+            rx = re.compile(t["match"], re.I)
+            cands = [c for c in cands if rx.search(c["title"] + " " + c["teaser"])]
+        cands = [c for c in cands if c["link"] not in used]
+        cands.sort(key=lambda c: c["date"] or datetime(1970, 1, 1, tzinfo=timezone.utc), reverse=True)
+        picked = []
+        for c in cands[:n]:
+            used.add(c["link"])
+            picked.append({"title": c["title"], "teaser": c["teaser"], "link": c["link"],
+                           "source": c["source"], "age": _age(c["date"])})
+        if not picked:
+            try:
+                picked = _google_news(t, n)
+            except Exception as e:
+                sys.stderr.write("news %s fallback failed: %s\n" % (t["tag"], e))
+        out.append({"tag": t["tag"], "items": picked})
     return out
 
 PHOTO_DIR = os.path.join(HERE, "assets", "photos")
@@ -213,9 +290,17 @@ def r_markets(stocks):
 def r_headlines(news):
     parts = []
     for t in news:
-        head = t["items"][0] if t["items"] else "— no headline —"
-        parts.append('<div class="hd"><div class="tag">%s</div><div class="ttl">%s</div></div>'
-                     % (esc(t["tag"]), esc(head)))
+        for h in (t["items"] or [{"title": "— no headline —", "teaser": "", "link": None, "source": "", "age": ""}]):
+            meta = " &middot; ".join(esc(x) for x in (h.get("source"), h.get("age")) if x)
+            body = ""
+            if h.get("teaser"):
+                body += "<p>%s</p>" % esc(h["teaser"])
+            if h.get("link"):
+                body += '<a href="%s">Read the full story at %s &rsaquo;</a>' % (esc(h["link"]), esc(h.get("source") or "source"))
+            parts.append('<div class="hd%s"><div class="tag">%s</div><div class="ttl">%s</div>%s%s</div>' % (
+                " x" if body else "", esc(t["tag"]), esc(h["title"]),
+                ('<div class="src">%s</div>' % meta) if meta else "",
+                ('<div class="tz">%s</div>' % body) if body else ""))
     return '<hr class="thin">'.join(parts)
 
 TEMPLATE = Template(r"""<!DOCTYPE html>
@@ -259,8 +344,20 @@ TEMPLATE = Template(r"""<!DOCTYPE html>
  .lau .lt .lw{font-size:20px;font-weight:800;}
  .lau .lt .ls{font-size:12px;text-transform:uppercase;letter-spacing:1px;}
  .hd{margin:10px 0;}
+ h2 .hint{display:none;letter-spacing:1px;font-weight:400;}
+ .js h2 .hint{display:inline;}
  .hd .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;}
  .hd .ttl{font-size:17px;font-weight:600;line-height:1.3;}
+ .hd .src{font-size:12px;margin-top:2px;}
+ .hd .tz{font-family:Georgia,serif;font-size:16px;line-height:1.45;margin-top:6px;}
+ .hd .tz p{margin:0 0 8px;}
+ .hd .tz a{color:#000;font-family:Helvetica,Arial,sans-serif;font-size:14px;font-weight:700;}
+ /* tap-to-expand: only when JavaScript runs; without JS the teasers simply show */
+ .js .hd.x{cursor:pointer;}
+ .js .hd.x .tz{display:none;}
+ .js .hd.x.open .tz{display:block;}
+ .js .hd.x .ttl::after{content:"  \25BC";font-size:11px;}
+ .js .hd.x.open .ttl::after{content:"  \25B2";}
  .photo img{display:block;margin:0 auto;max-width:100%;height:auto;border:1px solid #000;}
  .cap{font-family:Georgia,serif;font-size:14px;padding:8px 2px 0;font-style:italic;}
  .cap b{font-style:normal;}
@@ -295,7 +392,7 @@ TEMPLATE = Template(r"""<!DOCTYPE html>
   <div class="lt"><div class="lw">$launch_when</div><div class="ls">$launch_cd</div></div>
  </div>
 
- <h2>Headlines</h2>
+ <h2>Headlines<span class="hint"> &middot; tap to expand</span></h2>
  $headlines
 
  <h2>Photograph of the day</h2>
@@ -303,6 +400,18 @@ TEMPLATE = Template(r"""<!DOCTYPE html>
  <div class="cap">$photo_cap</div>
 
  <div class="foot"><span>Updated $updated</span><span>Rebuilt daily &middot; GitHub Actions</span></div>
+<script>
+ (function(){
+  document.body.className += " js";
+  var hs = document.querySelectorAll(".hd.x");
+  for (var i = 0; i < hs.length; i++) {
+   hs[i].addEventListener("click", function(e){
+    if (e.target && e.target.tagName === "A") return;   // let the link open the article
+    this.className = /\bopen\b/.test(this.className) ? this.className.replace(/\s*\bopen\b/, "") : this.className + " open";
+   });
+  }
+ })();
+</script>
 </body>
 </html>
 """)

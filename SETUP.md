@@ -55,7 +55,7 @@ Add a minute or two for the build and for GitHub Pages to republish.
 | Weather | Open-Meteo (api.open-meteo.com) | Keyless |
 | Stocks | Yahoo Finance chart API (query1.finance.yahoo.com/v8/finance/chart) | Keyless, unofficial |
 | Next launch | The Space Devs Launch Library 2 (ll.thespacedevs.com/2.2.0) | Keyless, rate-limited (use `LL_BASE=https://lldev.thespacedevs.com` when testing locally) |
-| Headlines | Google News RSS search, AU edition | Keyless |
+| Headlines | Outlet RSS feeds per topic (Electrek, Teslarati; Space.com, Teslarati SpaceX, SpaceNews, Spaceflight Now; TechCrunch AI, The Robot Report, IEEE Spectrum Robotics). Fallback: Google News RSS (AU) | Keyless |
 | Photos | Wikimedia Commons (one-time download; stored in repo) | Public domain |
 | Local tools on the Mac | `gh` CLI (installed + authenticated), Python 3 + Pillow | Lets future Claude sessions inspect runs, push, etc. |
 
@@ -136,10 +136,20 @@ Config lives in `config.json`: location (St Ives, NSW; lat −33.73, lon 151.16;
 | Weather | Open-Meteo current + 3-day daily, °C | Shows "—" and "Forecast unavailable" |
 | Markets "at last close" | `regularMarketPrice` vs the **second-to-last daily close** from the 5-day series. (Do NOT use `chartPreviousClose` with `range=5d`; that is the close before the 5-day window and gave 5-day changes. Fixed 2026-11-09.) Name from Yahoo `shortName`. | That row shows "—" / "n/a" |
 | Next SpaceX launch | Launch Library 2 `launch/upcoming/?search=SpaceX&limit=1`; time shown in Sydney time, countdown "in ~N hours/days" | "No upcoming launch found" |
-| Headlines | First Google News RSS item per topic, publisher suffix stripped | "— no headline —" |
+| Headlines | Per topic: newest story across that topic's outlet feeds (`config.json` → `news[].feeds`), optionally filtered by the topic's `match` regex. Shows title, outlet and age; **tap to expand** the outlet's own teaser (≤450 chars, max 3 sentences) plus a "Read the full story at <outlet> ›" link. The same article is never used for two topics. See §6.1 | If every feed for a topic fails: Google News headline only (no teaser/link); if that fails too, "— no headline —" |
 | Photo | Today's entry from `photos.json`, served from `assets/photos/` (see §7) | Next photo in the list; if none at all, "Photograph unavailable today." |
 
-Output: `index.html` (fully pre-rendered; no JavaScript, no client-side fetching) and `data.json` (the same data, for debugging or future pages).
+Output: `index.html` (fully pre-rendered; no client-side fetching; one tiny script for tap-to-expand) and `data.json` (the same data, for debugging or future pages).
+
+### 6.1 Headlines: teasers and tap-to-expand (added 2026-11-11)
+
+- **Why outlet feeds, not Google News:** Google News RSS gives only a headline, the outlet name and a Google redirect link: no story text and no direct article address. Outlet feeds include their own 1–3 sentence teaser and a direct link.
+- **Why teasers and not whole articles:** the page and repo are public, so copying full articles would republish copyrighted text. Teasers are what outlets publish in their feeds for syndication, and are capped at 450 characters (IEEE Spectrum puts the whole article in its feed; it gets cut to a teaser). For the whole story, tap the link to open the article on the outlet's site; the Kindle's Back button returns to the dashboard. (An AI-summary option was considered and declined: it needs an API key.)
+- **Teaser clean-up** strips HTML and feed boilerplate ("The post … appeared first on …", "Read More", "more…", "[…]").
+- **Topic filters (`match`)** keep mixed feeds on topic: Tesla = `Tesla|Cybertruck|Model [3SXY]|Robotaxi|FSD|Optimus|Supercharg`; SpaceX = `SpaceX|Starship|Falcon|Starlink|Dragon|Starbase`; AI & Robotics has none (all its feeds are on topic).
+- **Tap behaviour:** headlines start collapsed with a ▼; tapping one shows its teaser and link (▲); tapping again collapses it. Tapping the link opens the article. If JavaScript ever doesn't run, the teasers are simply shown expanded: nothing breaks. "· tap to expand" appears next to the HEADLINES heading only when the script runs.
+- **Change outlets:** edit `news[].feeds` in `config.json` (`name` is shown as the source; `url` must be an RSS/Atom feed). Feeds tested 2026-11-11: Electrek, Teslarati, Space.com, SpaceNews, Spaceflight Now, TechCrunch AI, The Robot Report, IEEE Spectrum all OK; NASASpaceflight blocks bots (403); Not a Tesla App and InsideEVs teasers too short; MIT Technology Review teasers start with newsletter boilerplate.
+- **Not yet confirmed on the Kindle itself:** tap-to-expand was tested in a desktop browser at Kindle size; the device fires `click` on tap (Phase 0), so it should work.
 
 ---
 
@@ -211,6 +221,7 @@ curl -s https://curioushelvetica.github.io/kindle-lab/index.html | grep -o 'Last
 - **"Last updated" stamp** added under the masthead so a stale page is obvious.
 - **Photos:** 2 of the original 4 Wikimedia links had died (404). Expanded to 31 verified masters, then **stored all of them in the repo** so the page no longer depends on Wikimedia daily. Height cap added for tall portraits.
 - **GitHub's scheduler did not work for this repo:** first UTC cron (21:15 UTC) → no run on 10 Nov; then `timezone: America/New_York` cron (16:10) → no run at 8:10 AM 11 Nov; the first-ever scheduled run arrived **4 hours late** (01:12 UTC 11 Nov = 12:12 PM Sydney). Note: a run skipped by GitHub is never made up, and pushing a schedule change replaces any pending slot.
+- **2026-11-11:** headlines switched from Google News to outlet feeds with tap-to-expand teasers + full-story links (§6.1).
 - **Fix (2026-11-11):** cron-job.org → GitHub API `workflow_dispatch` (§5), test-run OK (204), and the `schedule:` trigger removed so the "Last updated" time unambiguously reflects the timer.
 - **Lesson:** don't rely on GitHub's `schedule:` for anything time-sensitive; use an external trigger.
 

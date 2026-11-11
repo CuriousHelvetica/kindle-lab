@@ -7,9 +7,35 @@
   },
   "tickers": ["AAPL", "TSLA", "SPCX"],
   "news": [
-    { "tag": "Tesla", "query": "Tesla" },
-    { "tag": "SpaceX", "query": "SpaceX" },
-    { "tag": "AI & Robotics", "query": "AI robotics" }
+    {
+      "tag": "Tesla",
+      "query": "Tesla",
+      "match": "Tesla|Cybertruck|Model [3SXY]|Robotaxi|FSD|Optimus|Supercharg",
+      "feeds": [
+        { "name": "Electrek", "url": "https://electrek.co/guides/tesla/feed/" },
+        { "name": "Teslarati", "url": "https://www.teslarati.com/feed/" }
+      ]
+    },
+    {
+      "tag": "SpaceX",
+      "query": "SpaceX",
+      "match": "SpaceX|Starship|Falcon|Starlink|Dragon|Starbase",
+      "feeds": [
+        { "name": "Space.com", "url": "https://www.space.com/feeds/all" },
+        { "name": "Teslarati", "url": "https://www.teslarati.com/category/news/spacex/feed/" },
+        { "name": "SpaceNews", "url": "https://spacenews.com/feed/" },
+        { "name": "Spaceflight Now", "url": "https://spaceflightnow.com/feed/" }
+      ]
+    },
+    {
+      "tag": "AI & Robotics",
+      "query": "AI robotics",
+      "feeds": [
+        { "name": "TechCrunch", "url": "https://techcrunch.com/category/artificial-intelligence/feed/" },
+        { "name": "The Robot Report", "url": "https://www.therobotreport.com/feed/" },
+        { "name": "IEEE Spectrum", "url": "https://spectrum.ieee.org/feeds/topic/robotics.rss" }
+      ]
+    }
   ],
   "headlines_per_topic": 1,
   "photo": { "treatment": "grayscale" }
