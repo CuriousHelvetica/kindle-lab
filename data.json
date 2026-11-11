@@ -1,8 +1,8 @@
 {
-  "generated": "2026-11-11T12:45:03.945302+11:00",
+  "generated": "2026-11-11T13:03:25.941917+11:00",
   "weather": {
     "temp": 29,
-    "feels": 30,
+    "feels": 29,
     "cond": "Overcast",
     "today_hi": 29,
     "today_lo": 13,
@@ -55,19 +55,37 @@
     {
       "tag": "Tesla",
       "items": [
-        "Tesla Says \u201cPrivate FSD Only For Robotaxi.\u201d A Legal Flaw May Say Why"
+        {
+          "title": "Tesla tuner Unplugged offers to take over Cybertruck production",
+          "teaser": "Unplugged Performance, the biggest name in Tesla aftermarket tuning, wants to keep the Cybertruck alive. The company publicly offered on Tuesday to take the Cybertruck line off Tesla\u2019s hands, funded by a consortium of investors. It comes just four days after Elon Musk said Tesla would wind down Cybertruck production at Giga Texas around mid-2027, with the truck selling at roughly 12% of the 250,000 units a year Tesla planned for.",
+          "link": "https://electrek.co/2026/11/10/unplugged-performance-offers-take-over-tesla-cybertruck-production/",
+          "source": "Electrek",
+          "age": "just now"
+        }
       ]
     },
     {
       "tag": "SpaceX",
       "items": [
-        "SpaceX Starship Flight 15 live updates: Super Heavy rocket moved to launch pad for 1st Starship double landing test"
+        {
+          "title": "SpaceX moves Starship Flight 15 booster to launch pad for 'squeeze test' ahead of epic double-catch attempt (photos)",
+          "teaser": "SpaceX has moved its Starship Super Heavy booster to the pad to prep for the next test flight of the megarocket, a historic mission scheduled to launch this Friday (Nov. 13).",
+          "link": "https://www.space.com/space-exploration/launches-spacecraft/spacex-moves-starship-flight-15-booster-to-launch-pad-for-squeeze-test-ahead-of-epic-double-catch-attempt-photos",
+          "source": "Space.com",
+          "age": "3h ago"
+        }
       ]
     },
     {
       "tag": "AI & Robotics",
       "items": [
-        "Ring announces Ring Robotics, ushering in a new era of security"
+        {
+          "title": "OpenAI acquires Odessia, travel startup created by Sonder founder",
+          "teaser": "OpenAI has not yet said what its plans are for the future of travel. But Sonder founder Francis Davidson is a well-known figure in the travel industry.",
+          "link": "https://techcrunch.com/2026/11/10/openai-acquires-odessia-travel-startup-created-by-sonder-founder/",
+          "source": "TechCrunch",
+          "age": "4h ago"
+        }
       ]
     }
   ],

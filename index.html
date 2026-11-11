@@ -39,8 +39,20 @@
  .lau .lt .lw{font-size:20px;font-weight:800;}
  .lau .lt .ls{font-size:12px;text-transform:uppercase;letter-spacing:1px;}
  .hd{margin:10px 0;}
+ h2 .hint{display:none;letter-spacing:1px;font-weight:400;}
+ .js h2 .hint{display:inline;}
  .hd .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;}
  .hd .ttl{font-size:17px;font-weight:600;line-height:1.3;}
+ .hd .src{font-size:12px;margin-top:2px;}
+ .hd .tz{font-family:Georgia,serif;font-size:16px;line-height:1.45;margin-top:6px;}
+ .hd .tz p{margin:0 0 8px;}
+ .hd .tz a{color:#000;font-family:Helvetica,Arial,sans-serif;font-size:14px;font-weight:700;}
+ /* tap-to-expand: only when JavaScript runs; without JS the teasers simply show */
+ .js .hd.x{cursor:pointer;}
+ .js .hd.x .tz{display:none;}
+ .js .hd.x.open .tz{display:block;}
+ .js .hd.x .ttl::after{content:"  \25BC";font-size:11px;}
+ .js .hd.x.open .ttl::after{content:"  \25B2";}
  .photo img{display:block;margin:0 auto;max-width:100%;height:auto;border:1px solid #000;}
  .cap{font-family:Georgia,serif;font-size:14px;padding:8px 2px 0;font-style:italic;}
  .cap b{font-style:normal;}
@@ -53,11 +65,11 @@
    <div class="greet">Good afternoon</div>
    <div class="bigdate">Wednesday 11 Nov</div>
    <div class="loc">St Ives, NSW</div>
-   <div class="upd">Last updated Wed 11 Nov, 12:45 PM AEDT</div>
+   <div class="upd">Last updated Wed 11 Nov, 1:03 PM AEDT</div>
   </div>
   <div class="wx">
    <div class="t">29&deg;</div>
-   <div class="c">Overcast &middot; feels 30&deg;</div>
+   <div class="c">Overcast &middot; feels 29&deg;</div>
    <div class="hl">Today 29&deg; / 13&deg;</div>
   </div>
  </div>
@@ -75,13 +87,25 @@
   <div class="lt"><div class="lw">Thu 12 Nov, 1:35 PM</div><div class="ls">in ~24 hours</div></div>
  </div>
 
- <h2>Headlines</h2>
- <div class="hd"><div class="tag">Tesla</div><div class="ttl">Tesla Says “Private FSD Only For Robotaxi.” A Legal Flaw May Say Why</div></div><hr class="thin"><div class="hd"><div class="tag">SpaceX</div><div class="ttl">SpaceX Starship Flight 15 live updates: Super Heavy rocket moved to launch pad for 1st Starship double landing test</div></div><hr class="thin"><div class="hd"><div class="tag">AI &amp; Robotics</div><div class="ttl">Ring announces Ring Robotics, ushering in a new era of security</div></div>
+ <h2>Headlines<span class="hint"> &middot; tap to expand</span></h2>
+ <div class="hd x"><div class="tag">Tesla</div><div class="ttl">Tesla tuner Unplugged offers to take over Cybertruck production</div><div class="src">Electrek &middot; just now</div><div class="tz"><p>Unplugged Performance, the biggest name in Tesla aftermarket tuning, wants to keep the Cybertruck alive. The company publicly offered on Tuesday to take the Cybertruck line off Tesla’s hands, funded by a consortium of investors. It comes just four days after Elon Musk said Tesla would wind down Cybertruck production at Giga Texas around mid-2027, with the truck selling at roughly 12% of the 250,000 units a year Tesla planned for.</p><a href="https://electrek.co/2026/11/10/unplugged-performance-offers-take-over-tesla-cybertruck-production/">Read the full story at Electrek &rsaquo;</a></div></div><hr class="thin"><div class="hd x"><div class="tag">SpaceX</div><div class="ttl">SpaceX moves Starship Flight 15 booster to launch pad for &#x27;squeeze test&#x27; ahead of epic double-catch attempt (photos)</div><div class="src">Space.com &middot; 3h ago</div><div class="tz"><p>SpaceX has moved its Starship Super Heavy booster to the pad to prep for the next test flight of the megarocket, a historic mission scheduled to launch this Friday (Nov. 13).</p><a href="https://www.space.com/space-exploration/launches-spacecraft/spacex-moves-starship-flight-15-booster-to-launch-pad-for-squeeze-test-ahead-of-epic-double-catch-attempt-photos">Read the full story at Space.com &rsaquo;</a></div></div><hr class="thin"><div class="hd x"><div class="tag">AI &amp; Robotics</div><div class="ttl">OpenAI acquires Odessia, travel startup created by Sonder founder</div><div class="src">TechCrunch &middot; 4h ago</div><div class="tz"><p>OpenAI has not yet said what its plans are for the future of travel. But Sonder founder Francis Davidson is a well-known figure in the travel industry.</p><a href="https://techcrunch.com/2026/11/10/openai-acquires-odessia-travel-startup-created-by-sonder-founder/">Read the full story at TechCrunch &rsaquo;</a></div></div>
 
  <h2>Photograph of the day</h2>
  <div class="photo"><img src="assets/photos/frank-hurley--the-endurance-trapped-in-pack-ice.jpg" width="636" height="476" alt="Frank Hurley, The Endurance Trapped in Pack Ice"></div>
  <div class="cap"><b>Frank Hurley</b> &mdash; &ldquo;The Endurance Trapped in Pack Ice,&rdquo; 1915. Public domain, via Wikimedia Commons.</div>
 
- <div class="foot"><span>Updated Wed 11 Nov, 12:45 PM AEDT</span><span>Rebuilt daily &middot; GitHub Actions</span></div>
+ <div class="foot"><span>Updated Wed 11 Nov, 1:03 PM AEDT</span><span>Rebuilt daily &middot; GitHub Actions</span></div>
+<script>
+ (function(){
+  document.body.className += " js";
+  var hs = document.querySelectorAll(".hd.x");
+  for (var i = 0; i < hs.length; i++) {
+   hs[i].addEventListener("click", function(e){
+    if (e.target && e.target.tagName === "A") return;   // let the link open the article
+    this.className = /\bopen\b/.test(this.className) ? this.className.replace(/\s*\bopen\b/, "") : this.className + " open";
+   });
+  }
+ })();
+</script>
 </body>
 </html>
