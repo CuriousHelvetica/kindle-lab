@@ -1,23 +1,23 @@
 {
-  "generated": "2026-11-10T09:41:51.804261+11:00",
+  "generated": "2026-11-11T12:12:40.243934+11:00",
   "weather": {
-    "temp": 19,
-    "feels": 18,
-    "cond": "Clear",
-    "today_hi": 25,
-    "today_lo": 9,
+    "temp": 27,
+    "feels": 30,
+    "cond": "Mainly clear",
+    "today_hi": 29,
+    "today_lo": 13,
     "days": [
       {
-        "label": "Wed 11",
-        "cond": "Drizzle",
-        "hi": 28,
-        "lo": 13
+        "label": "Thu 12",
+        "cond": "Partly cloudy",
+        "hi": 24,
+        "lo": 16
       },
       {
-        "label": "Thu 12",
-        "cond": "Light drizzle",
-        "hi": 22,
-        "lo": 17
+        "label": "Fri 13",
+        "cond": "Heavy drizzle",
+        "hi": 27,
+        "lo": 14
       }
     ]
   },
@@ -25,57 +25,57 @@
     {
       "sym": "AAPL",
       "name": "Apple Inc.",
-      "price": 350.69,
-      "chg": 8.320004882812498,
-      "pct": 2.430120922239316
+      "price": 348.51,
+      "chg": 6.140004882812491,
+      "pct": 1.793382881204549
     },
     {
       "sym": "TSLA",
       "name": "Tesla, Inc.",
-      "price": 378.05,
-      "chg": 19.829998779296886,
-      "pct": 5.535703956150515
+      "price": 379.78,
+      "chg": 21.559998779296848,
+      "pct": 6.01864739708197
     },
     {
       "sym": "SPCX",
       "name": "Space Exploration Technologies",
-      "price": 142.07,
-      "chg": 7.799995727539056,
-      "pct": 5.8091870703387265
+      "price": 143.09,
+      "chg": 8.819995727539066,
+      "pct": 6.5688504110281505
     }
   ],
   "launch": {
     "name": "Falcon 9 Block 5 | USSF-627",
     "status": "Go for Launch",
     "pad": "Vandenberg SFB, CA, USA",
-    "when": "Wed 11 Nov, 1:49 PM",
-    "countdown": "in ~28 hours"
+    "when": "Thu 12 Nov, 1:35 PM",
+    "countdown": "in ~25 hours"
   },
   "news": [
     {
       "tag": "Tesla",
       "items": [
-        "Musk axes Tesla's Cybertruck in favour of self-driving taxis"
+        "Tesla Says \u201cPrivate FSD Only For Robotaxi.\u201d A Legal Flaw May Say Why"
       ]
     },
     {
       "tag": "SpaceX",
       "items": [
-        "SpaceX will launch epic double-catch Starship Flight 15 test mission on Nov. 13"
+        "SpaceX Starship Flight 15 live updates: Super Heavy rocket moved to launch pad for 1st Starship double landing test"
       ]
     },
     {
       "tag": "AI & Robotics",
       "items": [
-        "AI agents test and improve robot code in virtual worlds before deployment"
+        "Ring announces Ring Robotics, ushering in a new era of security"
       ]
     }
   ],
   "photo": {
-    "photographer": "Edward S. Curtis",
-    "title": "The Vanishing Race \u2014 Navaho",
-    "year": "1904",
-    "credit": "U.S. Library of Congress (public domain)",
-    "file": "edward-s-curtis--the-vanishing-race-navaho.jpg"
+    "photographer": "Frank Hurley",
+    "title": "The Endurance Trapped in Pack Ice",
+    "year": "1915",
+    "credit": "Public domain, via Wikimedia Commons",
+    "file": "frank-hurley--the-endurance-trapped-in-pack-ice.jpg"
   }
 }
