@@ -1,23 +1,23 @@
 {
-  "generated": "2026-11-12T08:10:12.808876+11:00",
+  "generated": "2026-11-13T08:10:13.760787+11:00",
   "weather": {
-    "temp": 20,
-    "feels": 20,
-    "cond": "Mainly clear",
-    "today_hi": 23,
+    "temp": 21,
+    "feels": 22,
+    "cond": "Overcast",
+    "today_hi": 27,
     "today_lo": 16,
     "days": [
       {
-        "label": "Fri 13",
-        "cond": "Light drizzle",
-        "hi": 27,
-        "lo": 16
+        "label": "Sat 14",
+        "cond": "Showers",
+        "hi": 34,
+        "lo": 18
       },
       {
-        "label": "Sat 14",
-        "cond": "Thunderstorm, hail",
-        "hi": 32,
-        "lo": 18
+        "label": "Sun 15",
+        "cond": "Drizzle",
+        "hi": 21,
+        "lo": 17
       }
     ]
   },
@@ -25,42 +25,42 @@
     {
       "sym": "AAPL",
       "name": "Apple Inc.",
-      "price": 355.63,
-      "chg": 7.1199902343749955,
-      "pct": 2.042980125352276
+      "price": 354.88,
+      "chg": -0.7500048828125045,
+      "pct": -0.21089471431400925
     },
     {
       "sym": "TSLA",
       "name": "Tesla, Inc.",
-      "price": 390.816,
-      "chg": 11.036001220703099,
-      "pct": 2.9058932161186553
+      "price": 397.45,
+      "chg": 6.610003662109364,
+      "pct": 1.6912301003080696
     },
     {
       "sym": "SPCX",
       "name": "Space Exploration Technologies",
-      "price": 139.75,
-      "chg": -3.339996337890625,
-      "pct": -2.334192762157605
+      "price": 139.94,
+      "chg": 0.18999999999999773,
+      "pct": 0.13595706618962272
     }
   ],
   "launch": {
     "name": "Falcon 9 Block 5 | USSF-627",
-    "status": "Go for Launch",
+    "status": "Launch Successful",
     "pad": "Vandenberg SFB, CA, USA",
-    "when": "Thu 12 Nov, 1:36 PM",
-    "countdown": "in ~5 hours"
+    "when": "Thu 12 Nov, 3:36 PM",
+    "countdown": "imminent"
   },
   "news": [
     {
       "tag": "Tesla",
       "items": [
         {
-          "title": "Tesla extends Cybertruck production to late summer 2027 amid fan backlash",
-          "teaser": "Elon Musk now says Tesla will keep building the Cybertruck \u201cthrough the end of summer 2027\u201d to \u201cwork through more of the Cybertruck order backlog.\u201d That buys the electric pickup roughly two to three more months, five days after Tesla first announced it was killing it. The reprieve lands as a growing number of Tesla\u2019s own fans push back on the decision, and on what it says about Tesla\u2019s future as a company that sells cars to people.",
-          "link": "https://electrek.co/2026/11/11/tesla-extends-cybertruck-production-summer-2027-fan-backlash/",
+          "title": "SpaceX could announce $1.5 trillion Tesla merger in December: report",
+          "teaser": "Elon Musk\u2019s companies are moving faster than expected on a Tesla-SpaceX combination. A deal could be announced as soon as December, which would make it the largest merger ever, according to Bloomberg . Tesla holds its annual shareholder meeting on December 3, and the same directors who would sign off on the deal are up for re-election.",
+          "link": "https://electrek.co/2026/11/12/spacex-tesla-merger-announcement-december-report/",
           "source": "Electrek",
-          "age": "2h ago"
+          "age": "just now"
         }
       ]
     },
@@ -68,10 +68,10 @@
       "tag": "SpaceX",
       "items": [
         {
-          "title": "SpaceX\u2019s $24B Starbase supercomputer plan slipped past a key roadblock",
-          "teaser": "SpaceX wants a Starbase tax break for a $24 billion gas plant and supercomputer campus.",
-          "link": "https://www.teslarati.com/spacexs-24b-starbase-supercomputer-plan-slipped-past-a-key-roadblock/",
-          "source": "Teslarati",
+          "title": "SpaceX's Starship megarocket will launch to orbit on Nov. 13. Will you be able to spot it in the night sky?",
+          "teaser": "\"It should be very bright, considerably brighter than the Starlink satellites due to its size.\"",
+          "link": "https://www.space.com/stargazing/spacexs-starship-megarocket-will-launch-to-orbit-on-nov-13-will-you-be-able-to-spot-it-in-the-night-sky",
+          "source": "Space.com",
           "age": "1h ago"
         }
       ]
@@ -80,9 +80,9 @@
       "tag": "AI & Robotics",
       "items": [
         {
-          "title": "Why the data center you dread might never even be built",
-          "teaser": "The data center boom is running into serious real-world obstacles, from widespread local opposition and permitting delays to a scramble for electricity. Before those challenges even come into play, though, there\u2019s a more basic problem: A lot of the projects being announced may never get built in the first place. With billions of dollars in AI infrastructure",
-          "link": "https://techcrunch.com/video/why-the-data-center-you-dread-might-never-even-be-built/",
+          "title": "Jensen Huang was having a third affair, Reuters reports",
+          "teaser": "Reuters is withholding the name of the new employee linked to Huang, but says she is an employee of Nvidia.",
+          "link": "https://techcrunch.com/2026/11/12/jensen-huang-was-having-a-third-affair-reuters-reports/",
           "source": "TechCrunch",
           "age": "just now"
         }
@@ -90,10 +90,10 @@
     }
   ],
   "photo": {
-    "photographer": "Lewis Hine",
-    "title": "Sadie Pfeifer, Lancaster Cotton Mills",
-    "year": "1908",
-    "credit": "U.S. National Archives (public domain)",
-    "file": "lewis-hine--sadie-pfeifer-lancaster-cotton-mills.jpg"
+    "photographer": "Jacob Riis",
+    "title": "Bandit's Roost, 59\u00bd Mulberry Street",
+    "year": "1888",
+    "credit": "Public domain, via Wikimedia Commons",
+    "file": "jacob-riis--bandit-s-roost-5912-mulberry-street.jpg"
   }
 }
