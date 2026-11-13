@@ -1,23 +1,23 @@
 {
-  "generated": "2026-11-13T08:10:13.760787+11:00",
+  "generated": "2026-11-14T08:10:13.388996+11:00",
   "weather": {
-    "temp": 21,
-    "feels": 22,
-    "cond": "Overcast",
-    "today_hi": 27,
-    "today_lo": 16,
+    "temp": 22,
+    "feels": 24,
+    "cond": "Mainly clear",
+    "today_hi": 33,
+    "today_lo": 19,
     "days": [
       {
-        "label": "Sat 14",
-        "cond": "Showers",
-        "hi": 34,
-        "lo": 18
+        "label": "Sun 15",
+        "cond": "Light showers",
+        "hi": 21,
+        "lo": 16
       },
       {
-        "label": "Sun 15",
-        "cond": "Drizzle",
-        "hi": 21,
-        "lo": 17
+        "label": "Mon 16",
+        "cond": "Showers",
+        "hi": 16,
+        "lo": 13
       }
     ]
   },
@@ -25,42 +25,42 @@
     {
       "sym": "AAPL",
       "name": "Apple Inc.",
-      "price": 354.88,
-      "chg": -0.7500048828125045,
-      "pct": -0.21089471431400925
+      "price": 356.27,
+      "chg": 1.3899951171874818,
+      "pct": 0.39168031392652913
     },
     {
       "sym": "TSLA",
       "name": "Tesla, Inc.",
-      "price": 397.45,
-      "chg": 6.610003662109364,
-      "pct": 1.6912301003080696
+      "price": 390.22,
+      "chg": -7.230012207031223,
+      "pct": -1.8190997571954075
     },
     {
       "sym": "SPCX",
       "name": "Space Exploration Technologies",
-      "price": 139.94,
-      "chg": 0.18999999999999773,
-      "pct": 0.13595706618962272
+      "price": 139.11,
+      "chg": -0.8300024414062364,
+      "pct": -0.5931130676903936
     }
   ],
   "launch": {
-    "name": "Falcon 9 Block 5 | USSF-627",
-    "status": "Launch Successful",
-    "pad": "Vandenberg SFB, CA, USA",
-    "when": "Thu 12 Nov, 3:36 PM",
-    "countdown": "imminent"
+    "name": "Starship | Starlink Group 31-2 (Starship Flight 15)",
+    "status": "Go for Launch",
+    "pad": "SpaceX Starbase, TX, USA",
+    "when": "Sat 14 Nov, 9:45 AM",
+    "countdown": "in ~1 hours"
   },
   "news": [
     {
       "tag": "Tesla",
       "items": [
         {
-          "title": "SpaceX could announce $1.5 trillion Tesla merger in December: report",
-          "teaser": "Elon Musk\u2019s companies are moving faster than expected on a Tesla-SpaceX combination. A deal could be announced as soon as December, which would make it the largest merger ever, according to Bloomberg . Tesla holds its annual shareholder meeting on December 3, and the same directors who would sign off on the deal are up for re-election.",
-          "link": "https://electrek.co/2026/11/12/spacex-tesla-merger-announcement-december-report/",
+          "title": "Tesla stops selling every Cybertruck except the $109,990 Cyberbeast",
+          "teaser": "Tesla is now only selling one version of the Cybertruck in the US: the tri-motor Cyberbeast, which just got another $7,500 price hike to $109,990. The Dual Motor and Premium AWD trims are still listed on Tesla\u2019s configurator, but both are greyed out and can\u2019t be selected. So the cheapest Cybertruck you can order today costs $109,990, up 57% from $69,990 in early August.",
+          "link": "https://electrek.co/2026/11/13/tesla-only-sells-cybertruck-cyberbeast-109990/",
           "source": "Electrek",
-          "age": "just now"
+          "age": "2h ago"
         }
       ]
     },
@@ -68,10 +68,10 @@
       "tag": "SpaceX",
       "items": [
         {
-          "title": "SpaceX's Starship megarocket will launch to orbit on Nov. 13. Will you be able to spot it in the night sky?",
-          "teaser": "\"It should be very bright, considerably brighter than the Starlink satellites due to its size.\"",
-          "link": "https://www.space.com/stargazing/spacexs-starship-megarocket-will-launch-to-orbit-on-nov-13-will-you-be-able-to-spot-it-in-the-night-sky",
-          "source": "Space.com",
+          "title": "Live Coverage: Starship Flight 15 attempts to recover full vehicle in double launch pad catch",
+          "teaser": "Liftoff of the integrated Starship vehicle from Starbase in Texas is scheduled during a 75-minute launch window that opens at 4:45 p.m. CST (5:45 p.m. EST / 2245 UTC) on Friday, Nov. 13.",
+          "link": "https://spaceflightnow.com/2026/11/13/live-coverage-starship-flight-15-attempts-to-recover-full-vehicle-in-double-launch-pad-catch/",
+          "source": "Spaceflight Now",
           "age": "1h ago"
         }
       ]
@@ -80,20 +80,20 @@
       "tag": "AI & Robotics",
       "items": [
         {
-          "title": "Jensen Huang was having a third affair, Reuters reports",
-          "teaser": "Reuters is withholding the name of the new employee linked to Huang, but says she is an employee of Nvidia.",
-          "link": "https://techcrunch.com/2026/11/12/jensen-huang-was-having-a-third-affair-reuters-reports/",
+          "title": "AI agent startup LangChain hits $3B valuation",
+          "teaser": "LangChain now claims 7,000 customers of its model and platform agnostic agent management tool LangSmith.",
+          "link": "https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/",
           "source": "TechCrunch",
-          "age": "just now"
+          "age": "1h ago"
         }
       ]
     }
   ],
   "photo": {
-    "photographer": "Jacob Riis",
-    "title": "Bandit's Roost, 59\u00bd Mulberry Street",
-    "year": "1888",
-    "credit": "Public domain, via Wikimedia Commons",
-    "file": "jacob-riis--bandit-s-roost-5912-mulberry-street.jpg"
+    "photographer": "Gertrude K\u00e4sebier",
+    "title": "Blessed Art Thou Among Women",
+    "year": "1899",
+    "credit": "The Metropolitan Museum of Art, Open Access (public domain)",
+    "file": "gertrude-kasebier--blessed-art-thou-among-women.jpg"
   }
 }
