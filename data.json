@@ -1,23 +1,23 @@
 {
-  "generated": "2026-11-14T08:10:13.388996+11:00",
+  "generated": "2026-11-15T08:10:12.654311+11:00",
   "weather": {
-    "temp": 22,
-    "feels": 24,
-    "cond": "Mainly clear",
-    "today_hi": 33,
-    "today_lo": 19,
+    "temp": 19,
+    "feels": 20,
+    "cond": "Overcast",
+    "today_hi": 23,
+    "today_lo": 16,
     "days": [
       {
-        "label": "Sun 15",
-        "cond": "Light showers",
-        "hi": 21,
-        "lo": 16
+        "label": "Mon 16",
+        "cond": "Heavy drizzle",
+        "hi": 17,
+        "lo": 14
       },
       {
-        "label": "Mon 16",
-        "cond": "Showers",
-        "hi": 16,
-        "lo": 13
+        "label": "Tue 17",
+        "cond": "Light drizzle",
+        "hi": 21,
+        "lo": 12
       }
     ]
   },
@@ -46,21 +46,21 @@
   ],
   "launch": {
     "name": "Starship | Starlink Group 31-2 (Starship Flight 15)",
-    "status": "Go for Launch",
+    "status": "Launch in Flight",
     "pad": "SpaceX Starbase, TX, USA",
-    "when": "Sat 14 Nov, 9:45 AM",
-    "countdown": "in ~1 hours"
+    "when": "Sat 14 Nov, 9:47 AM",
+    "countdown": "imminent"
   },
   "news": [
     {
       "tag": "Tesla",
       "items": [
         {
-          "title": "Tesla stops selling every Cybertruck except the $109,990 Cyberbeast",
-          "teaser": "Tesla is now only selling one version of the Cybertruck in the US: the tri-motor Cyberbeast, which just got another $7,500 price hike to $109,990. The Dual Motor and Premium AWD trims are still listed on Tesla\u2019s configurator, but both are greyed out and can\u2019t be selected. So the cheapest Cybertruck you can order today costs $109,990, up 57% from $69,990 in early August.",
-          "link": "https://electrek.co/2026/11/13/tesla-only-sells-cybertruck-cyberbeast-109990/",
+          "title": "Tesla Cybercab\u2019s autonomy agreement is insane: $299/mo or it doesn\u2019t move",
+          "teaser": "Tesla has posted the agreement that comes with its $29,990 Cybercab, and it\u2019s even worse than the order page suggested. The two-seater can\u2019t move without a $299 monthly \u201cAutonomy Subscription\u201d that Tesla can reprice with a month\u2019s notice, suspend for a week, or cut off entirely.",
+          "link": "https://electrek.co/2026/11/14/tesla-cybercab-autonomy-subscription-agreement-terms/",
           "source": "Electrek",
-          "age": "2h ago"
+          "age": "7h ago"
         }
       ]
     },
@@ -68,11 +68,11 @@
       "tag": "SpaceX",
       "items": [
         {
-          "title": "Live Coverage: Starship Flight 15 attempts to recover full vehicle in double launch pad catch",
-          "teaser": "Liftoff of the integrated Starship vehicle from Starbase in Texas is scheduled during a 75-minute launch window that opens at 4:45 p.m. CST (5:45 p.m. EST / 2245 UTC) on Friday, Nov. 13.",
-          "link": "https://spaceflightnow.com/2026/11/13/live-coverage-starship-flight-15-attempts-to-recover-full-vehicle-in-double-launch-pad-catch/",
-          "source": "Spaceflight Now",
-          "age": "1h ago"
+          "title": "Why did Starship Flight 15 booster abort 'chopsticks' landing catch? SpaceX still investigating (video)",
+          "teaser": "SpaceX is looking into why its latest Starship megarocket test flight missed the first of two planned landings on Friday (Nov. 13) during the Starship Flight 15 test.",
+          "link": "https://www.space.com/space-exploration/launches-spacecraft/spacex-says-starship-flight-15-booster-aborted-chopsticks-landing-catch-after-launch-due-to-guidance-issue-video",
+          "source": "Space.com",
+          "age": "6h ago"
         }
       ]
     },
@@ -80,20 +80,20 @@
       "tag": "AI & Robotics",
       "items": [
         {
-          "title": "AI agent startup LangChain hits $3B valuation",
-          "teaser": "LangChain now claims 7,000 customers of its model and platform agnostic agent management tool LangSmith.",
-          "link": "https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/",
+          "title": "The AI graveyard: a running list of projects and startups that didn\u2019t make it",
+          "teaser": "From Apple's repeatedly delayed Siri AI to OpenAI's messy \"super app\" launch, here's a look at the AI projects that shut down or missed expectations.",
+          "link": "https://techcrunch.com/2026/11/14/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
           "source": "TechCrunch",
-          "age": "1h ago"
+          "age": "3h ago"
         }
       ]
     }
   ],
   "photo": {
-    "photographer": "Gertrude K\u00e4sebier",
-    "title": "Blessed Art Thou Among Women",
-    "year": "1899",
-    "credit": "The Metropolitan Museum of Art, Open Access (public domain)",
-    "file": "gertrude-kasebier--blessed-art-thou-among-women.jpg"
+    "photographer": "Timothy H. O'Sullivan",
+    "title": "Ancient Ruins in the Ca\u00f1on de Chelle",
+    "year": "1873",
+    "credit": "Public domain, via Wikimedia Commons",
+    "file": "timothy-h-o-sullivan--ancient-ruins-in-the-canon-de-chelle.jpg"
   }
 }
