@@ -1,22 +1,22 @@
 {
-  "generated": "2026-11-15T08:10:12.654311+11:00",
+  "generated": "2026-11-16T08:10:12.528444+11:00",
   "weather": {
-    "temp": 19,
-    "feels": 20,
-    "cond": "Overcast",
-    "today_hi": 23,
-    "today_lo": 16,
+    "temp": 15,
+    "feels": 14,
+    "cond": "Drizzle",
+    "today_hi": 18,
+    "today_lo": 13,
     "days": [
-      {
-        "label": "Mon 16",
-        "cond": "Heavy drizzle",
-        "hi": 17,
-        "lo": 14
-      },
       {
         "label": "Tue 17",
         "cond": "Light drizzle",
-        "hi": 21,
+        "hi": 22,
+        "lo": 11
+      },
+      {
+        "label": "Wed 18",
+        "cond": "Overcast",
+        "hi": 25,
         "lo": 12
       }
     ]
@@ -45,22 +45,22 @@
     }
   ],
   "launch": {
-    "name": "Starship | Starlink Group 31-2 (Starship Flight 15)",
-    "status": "Launch in Flight",
-    "pad": "SpaceX Starbase, TX, USA",
-    "when": "Sat 14 Nov, 9:47 AM",
-    "countdown": "imminent"
+    "name": "Falcon 9 Block 5 | USSF-317",
+    "status": "Go for Launch",
+    "pad": "Vandenberg SFB, CA, USA",
+    "when": "Thu 19 Nov, 2:00 PM",
+    "countdown": "in ~3 days"
   },
   "news": [
     {
       "tag": "Tesla",
       "items": [
         {
-          "title": "Tesla Cybercab\u2019s autonomy agreement is insane: $299/mo or it doesn\u2019t move",
-          "teaser": "Tesla has posted the agreement that comes with its $29,990 Cybercab, and it\u2019s even worse than the order page suggested. The two-seater can\u2019t move without a $299 monthly \u201cAutonomy Subscription\u201d that Tesla can reprice with a month\u2019s notice, suspend for a week, or cut off entirely.",
-          "link": "https://electrek.co/2026/11/14/tesla-cybercab-autonomy-subscription-agreement-terms/",
-          "source": "Electrek",
-          "age": "7h ago"
+          "title": "MKBHD just ordered the Tesla Cybercab with his hair on the line",
+          "teaser": "MKBHD ordered a Tesla Cybercab, two years after betting his hair Tesla couldn't sell one.",
+          "link": "https://www.teslarati.com/mkbhd-tesla-cybercab-bet/",
+          "source": "Teslarati",
+          "age": "3h ago"
         }
       ]
     },
@@ -68,11 +68,11 @@
       "tag": "SpaceX",
       "items": [
         {
-          "title": "Why did Starship Flight 15 booster abort 'chopsticks' landing catch? SpaceX still investigating (video)",
-          "teaser": "SpaceX is looking into why its latest Starship megarocket test flight missed the first of two planned landings on Friday (Nov. 13) during the Starship Flight 15 test.",
-          "link": "https://www.space.com/space-exploration/launches-spacecraft/spacex-says-starship-flight-15-booster-aborted-chopsticks-landing-catch-after-launch-due-to-guidance-issue-video",
+          "title": "What's next for SpaceX's Starship after epic Flight 15 chopsticks catch?",
+          "teaser": "SpaceX just made spaceflight history, catching the upper stage of its Starship megarocket when it returned to Earth. But Starship still has some pretty big boxes left to check.",
+          "link": "https://www.space.com/space-exploration/launches-spacecraft/whats-next-for-spacexs-starship-after-epic-flight-15-chopsticks-catch",
           "source": "Space.com",
-          "age": "6h ago"
+          "age": "10h ago"
         }
       ]
     },
@@ -80,20 +80,20 @@
       "tag": "AI & Robotics",
       "items": [
         {
-          "title": "The AI graveyard: a running list of projects and startups that didn\u2019t make it",
-          "teaser": "From Apple's repeatedly delayed Siri AI to OpenAI's messy \"super app\" launch, here's a look at the AI projects that shut down or missed expectations.",
-          "link": "https://techcrunch.com/2026/11/14/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
+          "title": "SNL gathers all the tech tycoons for a lesson in dating and spycraft",
+          "teaser": "While awkward, creepy tech executives have become a recurring theme on Saturday Night Live, this week\u2019s episode gave the cast a chance to show off all their impressions at once.",
+          "link": "https://techcrunch.com/2026/11/15/snl-gathers-all-the-tech-tycoons-for-a-lesson-in-dating-and-spycraft/",
           "source": "TechCrunch",
-          "age": "3h ago"
+          "age": "just now"
         }
       ]
     }
   ],
   "photo": {
-    "photographer": "Timothy H. O'Sullivan",
-    "title": "Ancient Ruins in the Ca\u00f1on de Chelle",
-    "year": "1873",
+    "photographer": "Nadar",
+    "title": "Sarah Bernhardt",
+    "year": "c. 1864",
     "credit": "Public domain, via Wikimedia Commons",
-    "file": "timothy-h-o-sullivan--ancient-ruins-in-the-canon-de-chelle.jpg"
+    "file": "nadar--sarah-bernhardt.jpg"
   }
 }
