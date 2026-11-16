@@ -1,23 +1,23 @@
 {
-  "generated": "2026-11-16T08:10:12.528444+11:00",
+  "generated": "2026-11-17T08:10:19.244026+11:00",
   "weather": {
-    "temp": 15,
-    "feels": 14,
-    "cond": "Drizzle",
-    "today_hi": 18,
-    "today_lo": 13,
+    "temp": 16,
+    "feels": 15,
+    "cond": "Clear",
+    "today_hi": 22,
+    "today_lo": 11,
     "days": [
       {
-        "label": "Tue 17",
-        "cond": "Light drizzle",
-        "hi": 22,
-        "lo": 11
+        "label": "Wed 18",
+        "cond": "Fog",
+        "hi": 23,
+        "lo": 12
       },
       {
-        "label": "Wed 18",
+        "label": "Thu 19",
         "cond": "Overcast",
         "hi": 25,
-        "lo": 12
+        "lo": 14
       }
     ]
   },
@@ -25,23 +25,23 @@
     {
       "sym": "AAPL",
       "name": "Apple Inc.",
-      "price": 356.27,
-      "chg": 1.3899951171874818,
-      "pct": 0.39168031392652913
+      "price": 352.78,
+      "chg": -3.4899890136719023,
+      "pct": -0.9795910745482337
     },
     {
       "sym": "TSLA",
       "name": "Tesla, Inc.",
-      "price": 390.22,
-      "chg": -7.230012207031223,
-      "pct": -1.8190997571954075
+      "price": 379.74,
+      "chg": -10.480001220703116,
+      "pct": -2.6856648013733593
     },
     {
       "sym": "SPCX",
       "name": "Space Exploration Technologies",
-      "price": 139.11,
-      "chg": -0.8300024414062364,
-      "pct": -0.5931130676903936
+      "price": 137.36,
+      "chg": -1.7500006103515489,
+      "pct": -1.2579977015838835
     }
   ],
   "launch": {
@@ -49,17 +49,17 @@
     "status": "Go for Launch",
     "pad": "Vandenberg SFB, CA, USA",
     "when": "Thu 19 Nov, 2:00 PM",
-    "countdown": "in ~3 days"
+    "countdown": "in ~2 days"
   },
   "news": [
     {
       "tag": "Tesla",
       "items": [
         {
-          "title": "MKBHD just ordered the Tesla Cybercab with his hair on the line",
-          "teaser": "MKBHD ordered a Tesla Cybercab, two years after betting his hair Tesla couldn't sell one.",
-          "link": "https://www.teslarati.com/mkbhd-tesla-cybercab-bet/",
-          "source": "Teslarati",
+          "title": "Tesla Model X on Autopilot/FSD hit a pole and flipped, killing passenger",
+          "teaser": "A Tesla Model X veered off Golden Gate Parkway in Naples, Florida, hit a traffic signal pole and overturned in September, killing a 50-year-old woman riding as a passenger. Tesla\u2019s own report to federal regulators says Autopilot or \u201cFull Self-Driving\u201d was engaged. Tesla flagged this crash itself, through its telematics, and says it has the car\u2019s event data recorder and video.",
+          "link": "https://electrek.co/2026/11/16/tesla-autopilot-fsd-model-x-pole-rollover-naples/",
+          "source": "Electrek",
           "age": "3h ago"
         }
       ]
@@ -68,11 +68,11 @@
       "tag": "SpaceX",
       "items": [
         {
-          "title": "What's next for SpaceX's Starship after epic Flight 15 chopsticks catch?",
-          "teaser": "SpaceX just made spaceflight history, catching the upper stage of its Starship megarocket when it returned to Earth. But Starship still has some pretty big boxes left to check.",
-          "link": "https://www.space.com/space-exploration/launches-spacecraft/whats-next-for-spacexs-starship-after-epic-flight-15-chopsticks-catch",
+          "title": "Elon Musk says SpaceX\u2019s Starship, already the largest rocket on Earth, will get even bigger with next-gen V4 model",
+          "teaser": "Just a day after SpaceX caught the upper stage of its Starship megarocket back at the launch pad for the first time ever, Elon Musk told us that the spacecraft will get even bigger.",
+          "link": "https://www.space.com/space-exploration/launches-spacecraft/elon-musk-says-spacexs-starship-already-the-largest-rocket-on-earth-will-get-even-bigger-with-next-gen-v4-model",
           "source": "Space.com",
-          "age": "10h ago"
+          "age": "1h ago"
         }
       ]
     },
@@ -80,20 +80,20 @@
       "tag": "AI & Robotics",
       "items": [
         {
-          "title": "SNL gathers all the tech tycoons for a lesson in dating and spycraft",
-          "teaser": "While awkward, creepy tech executives have become a recurring theme on Saturday Night Live, this week\u2019s episode gave the cast a chance to show off all their impressions at once.",
-          "link": "https://techcrunch.com/2026/11/15/snl-gathers-all-the-tech-tycoons-for-a-lesson-in-dating-and-spycraft/",
+          "title": "California state AG sues OpenAI over rogue agent incidents",
+          "teaser": "The California lawsuit represents one of the first attempts to hold an AI lab legally accountable for a rogue agent incident",
+          "link": "https://techcrunch.com/2026/11/16/california-state-ag-sues-openai-over-rogue-agent-incidents/",
           "source": "TechCrunch",
-          "age": "just now"
+          "age": "1h ago"
         }
       ]
     }
   ],
   "photo": {
-    "photographer": "Nadar",
-    "title": "Sarah Bernhardt",
-    "year": "c. 1864",
-    "credit": "Public domain, via Wikimedia Commons",
-    "file": "nadar--sarah-bernhardt.jpg"
+    "photographer": "Harold Cazneaux",
+    "title": "Garden at Night",
+    "year": "c. 1935",
+    "credit": "State Library of New South Wales (public domain)",
+    "file": "harold-cazneaux--garden-at-night.jpg"
   }
 }
