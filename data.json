@@ -1,54 +1,34 @@
 {
-  "generated": "2026-11-17T08:10:19.244026+11:00",
-  "weather": {
-    "temp": 16,
-    "feels": 15,
-    "cond": "Clear",
-    "today_hi": 22,
-    "today_lo": 11,
-    "days": [
-      {
-        "label": "Wed 18",
-        "cond": "Fog",
-        "hi": 23,
-        "lo": 12
-      },
-      {
-        "label": "Thu 19",
-        "cond": "Overcast",
-        "hi": 25,
-        "lo": 14
-      }
-    ]
-  },
+  "generated": "2026-11-18T08:10:13.923550+11:00",
+  "weather": null,
   "stocks": [
     {
       "sym": "AAPL",
       "name": "Apple Inc.",
-      "price": 352.78,
-      "chg": -3.4899890136719023,
-      "pct": -0.9795910745482337
+      "price": 351.91,
+      "chg": -0.86999877929685,
+      "pct": -0.2466122745924524
     },
     {
       "sym": "TSLA",
       "name": "Tesla, Inc.",
-      "price": 379.74,
-      "chg": -10.480001220703116,
-      "pct": -2.6856648013733593
+      "price": 380.11,
+      "chg": 0.37000976562501364,
+      "pct": 0.09743766133154533
     },
     {
       "sym": "SPCX",
       "name": "Space Exploration Technologies",
-      "price": 137.36,
-      "chg": -1.7500006103515489,
-      "pct": -1.2579977015838835
+      "price": 141.7,
+      "chg": 4.339999389648426,
+      "pct": 3.1595802055648505
     }
   ],
   "launch": {
     "name": "Falcon 9 Block 5 | USSF-317",
     "status": "Go for Launch",
     "pad": "Vandenberg SFB, CA, USA",
-    "when": "Thu 19 Nov, 2:00 PM",
+    "when": "Fri 20 Nov, 1:46 PM",
     "countdown": "in ~2 days"
   },
   "news": [
@@ -56,11 +36,11 @@
       "tag": "Tesla",
       "items": [
         {
-          "title": "Tesla Model X on Autopilot/FSD hit a pole and flipped, killing passenger",
-          "teaser": "A Tesla Model X veered off Golden Gate Parkway in Naples, Florida, hit a traffic signal pole and overturned in September, killing a 50-year-old woman riding as a passenger. Tesla\u2019s own report to federal regulators says Autopilot or \u201cFull Self-Driving\u201d was engaged. Tesla flagged this crash itself, through its telematics, and says it has the car\u2019s event data recorder and video.",
-          "link": "https://electrek.co/2026/11/16/tesla-autopilot-fsd-model-x-pole-rollover-naples/",
-          "source": "Electrek",
-          "age": "3h ago"
+          "title": "Tesla changes vehicle computers from \u2018AI\u2019 to \u2018SI,\u2019 reflecting President Trump change",
+          "teaser": "Tesla has officially changed the reference to its vehicles\u2019 internal computers to \u201cSuper Intelligence,\u201d or \u201cSI,\u201d reflecting a change that President Donald Trump made when he noted it would no longer be referred to as \u201cArtificial Intelligence,\u201d or \u201cAI.\u201d Tesla hacker Green posted that a breakdown of Software Version 2026.44.1, noting that the in-car computer",
+          "link": "https://www.teslarati.com/tesla-changes-vehicle-computers-from-ai-to-si-reflecting-president-trump-change/",
+          "source": "Teslarati",
+          "age": "1h ago"
         }
       ]
     },
@@ -68,11 +48,11 @@
       "tag": "SpaceX",
       "items": [
         {
-          "title": "Elon Musk says SpaceX\u2019s Starship, already the largest rocket on Earth, will get even bigger with next-gen V4 model",
-          "teaser": "Just a day after SpaceX caught the upper stage of its Starship megarocket back at the launch pad for the first time ever, Elon Musk told us that the spacecraft will get even bigger.",
-          "link": "https://www.space.com/space-exploration/launches-spacecraft/elon-musk-says-spacexs-starship-already-the-largest-rocket-on-earth-will-get-even-bigger-with-next-gen-v4-model",
-          "source": "Space.com",
-          "age": "1h ago"
+          "title": "FAA turned down free Starlink offer before nationwide ground stop, Elon Musk says",
+          "teaser": "Elon Musk says the FAA declined free Starlink terminals before last week's nationwide ground stop.",
+          "link": "https://www.teslarati.com/faa-turned-down-free-starlink-offer-before-nationwide-ground-stop-elon-musk-says/",
+          "source": "Teslarati",
+          "age": "21h ago"
         }
       ]
     },
@@ -80,20 +60,20 @@
       "tag": "AI & Robotics",
       "items": [
         {
-          "title": "California state AG sues OpenAI over rogue agent incidents",
-          "teaser": "The California lawsuit represents one of the first attempts to hold an AI lab legally accountable for a rogue agent incident",
-          "link": "https://techcrunch.com/2026/11/16/california-state-ag-sues-openai-over-rogue-agent-incidents/",
-          "source": "TechCrunch",
+          "title": "Learn how AI is changing supply chain robotics",
+          "teaser": "The live webinar, \"Robots in the Supply Chain,\" will take place Wednesday, November 18, 2026, at 12 P.M. ET.",
+          "link": "https://www.therobotreport.com/learn-how-ai-is-changing-supply-chain-robotics/",
+          "source": "The Robot Report",
           "age": "1h ago"
         }
       ]
     }
   ],
   "photo": {
-    "photographer": "Harold Cazneaux",
-    "title": "Garden at Night",
-    "year": "c. 1935",
-    "credit": "State Library of New South Wales (public domain)",
-    "file": "harold-cazneaux--garden-at-night.jpg"
+    "photographer": "Jack Delano",
+    "title": "Chicago, Illinois",
+    "year": "1943",
+    "credit": "U.S. Library of Congress (public domain)",
+    "file": "jack-delano--chicago-illinois.jpg"
   }
 }
