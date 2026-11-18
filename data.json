@@ -1,27 +1,47 @@
 {
-  "generated": "2026-11-18T08:10:13.923550+11:00",
-  "weather": null,
+  "generated": "2026-11-19T08:10:13.365597+11:00",
+  "weather": {
+    "temp": 20,
+    "feels": 20,
+    "cond": "Clear",
+    "today_hi": 25,
+    "today_lo": 14,
+    "days": [
+      {
+        "label": "Fri 20",
+        "cond": "Light showers",
+        "hi": 26,
+        "lo": 16
+      },
+      {
+        "label": "Sat 21",
+        "cond": "Thunderstorm, hail",
+        "hi": 31,
+        "lo": 18
+      }
+    ]
+  },
   "stocks": [
     {
       "sym": "AAPL",
       "name": "Apple Inc.",
-      "price": 351.91,
-      "chg": -0.86999877929685,
-      "pct": -0.2466122745924524
+      "price": 352.45,
+      "chg": 0.5399963378906136,
+      "pct": 0.15344728262089918
     },
     {
       "sym": "TSLA",
       "name": "Tesla, Inc.",
-      "price": 380.11,
-      "chg": 0.37000976562501364,
-      "pct": 0.09743766133154533
+      "price": 383.72,
+      "chg": 3.6100146484375273,
+      "pct": 0.949728969918703
     },
     {
       "sym": "SPCX",
       "name": "Space Exploration Technologies",
-      "price": 141.7,
-      "chg": 4.339999389648426,
-      "pct": 3.1595802055648505
+      "price": 143.5,
+      "chg": 1.8000030517578125,
+      "pct": 1.2702915247170312
     }
   ],
   "launch": {
@@ -29,16 +49,16 @@
     "status": "Go for Launch",
     "pad": "Vandenberg SFB, CA, USA",
     "when": "Fri 20 Nov, 1:46 PM",
-    "countdown": "in ~2 days"
+    "countdown": "in ~29 hours"
   },
   "news": [
     {
       "tag": "Tesla",
       "items": [
         {
-          "title": "Tesla changes vehicle computers from \u2018AI\u2019 to \u2018SI,\u2019 reflecting President Trump change",
-          "teaser": "Tesla has officially changed the reference to its vehicles\u2019 internal computers to \u201cSuper Intelligence,\u201d or \u201cSI,\u201d reflecting a change that President Donald Trump made when he noted it would no longer be referred to as \u201cArtificial Intelligence,\u201d or \u201cAI.\u201d Tesla hacker Green posted that a breakdown of Software Version 2026.44.1, noting that the in-car computer",
-          "link": "https://www.teslarati.com/tesla-changes-vehicle-computers-from-ai-to-si-reflecting-president-trump-change/",
+          "title": "Tesla Robotaxi takes over for Uber credits and loaners at Service locations",
+          "teaser": "Tesla is now utilizing its in-house Robotaxi platform to give those waiting for their vehicles during Service visits rides instead of offering Uber credits or Loaner vehicles. Tesla owners in Austin who bring vehicles in for service are receiving in-app prompts to use the company\u2019s Robotaxi network while their cars are being worked on. One",
+          "link": "https://www.teslarati.com/tesla-robotaxi-takes-over-uber-credits-loaners-service/",
           "source": "Teslarati",
           "age": "1h ago"
         }
@@ -48,11 +68,11 @@
       "tag": "SpaceX",
       "items": [
         {
-          "title": "FAA turned down free Starlink offer before nationwide ground stop, Elon Musk says",
-          "teaser": "Elon Musk says the FAA declined free Starlink terminals before last week's nationwide ground stop.",
-          "link": "https://www.teslarati.com/faa-turned-down-free-starlink-offer-before-nationwide-ground-stop-elon-musk-says/",
+          "title": "Sean Duffy fires back at Elon Musk over free Starlink",
+          "teaser": "Sean Duffy says the FAA picked a ground network over Starlink, and Musk isn't impressed.",
+          "link": "https://www.teslarati.com/sean-duffy-elon-musk-free-starlink/",
           "source": "Teslarati",
-          "age": "21h ago"
+          "age": "4h ago"
         }
       ]
     },
@@ -60,20 +80,20 @@
       "tag": "AI & Robotics",
       "items": [
         {
-          "title": "Learn how AI is changing supply chain robotics",
-          "teaser": "The live webinar, \"Robots in the Supply Chain,\" will take place Wednesday, November 18, 2026, at 12 P.M. ET.",
-          "link": "https://www.therobotreport.com/learn-how-ai-is-changing-supply-chain-robotics/",
-          "source": "The Robot Report",
+          "title": "Sam Altman says his life is so weird that he\u2019s unfazed by Andrew Garfield portraying him in upcoming movie",
+          "teaser": "\"It doesn't feel like it's in like the top 10 weirdest things about my life,\" Altman said.",
+          "link": "https://techcrunch.com/2026/11/18/sam-altman-says-his-life-is-so-weird-that-hes-unfazed-by-andrew-garfield-portraying-him-in-upcoming-movie/",
+          "source": "TechCrunch",
           "age": "1h ago"
         }
       ]
     }
   ],
   "photo": {
-    "photographer": "Jack Delano",
-    "title": "Chicago, Illinois",
-    "year": "1943",
-    "credit": "U.S. Library of Congress (public domain)",
-    "file": "jack-delano--chicago-illinois.jpg"
+    "photographer": "Ansel Adams",
+    "title": "The Tetons and the Snake River",
+    "year": "1942",
+    "credit": "U.S. National Archives (public domain)",
+    "file": "ansel-adams--the-tetons-and-the-snake-river.jpg"
   }
 }
