@@ -1,22 +1,22 @@
 {
-  "generated": "2026-11-19T08:10:13.365597+11:00",
+  "generated": "2026-11-20T08:10:33.497501+11:00",
   "weather": {
     "temp": 20,
-    "feels": 20,
-    "cond": "Clear",
-    "today_hi": 25,
-    "today_lo": 14,
+    "feels": 22,
+    "cond": "Overcast",
+    "today_hi": 28,
+    "today_lo": 16,
     "days": [
       {
-        "label": "Fri 20",
-        "cond": "Light showers",
-        "hi": 26,
-        "lo": 16
+        "label": "Sat 21",
+        "cond": "Heavy drizzle",
+        "hi": 30,
+        "lo": 17
       },
       {
-        "label": "Sat 21",
-        "cond": "Thunderstorm, hail",
-        "hi": 31,
+        "label": "Sun 22",
+        "cond": "Light drizzle",
+        "hi": 32,
         "lo": 18
       }
     ]
@@ -25,40 +25,40 @@
     {
       "sym": "AAPL",
       "name": "Apple Inc.",
-      "price": 352.45,
-      "chg": 0.5399963378906136,
-      "pct": 0.15344728262089918
+      "price": 349.21,
+      "chg": -3.2400122070312705,
+      "pct": -0.9192827620411794
     },
     {
       "sym": "TSLA",
       "name": "Tesla, Inc.",
-      "price": 383.72,
-      "chg": 3.6100146484375273,
-      "pct": 0.949728969918703
+      "price": 374.41,
+      "chg": -9.3100012207031,
+      "pct": -2.4262486164614323
     },
     {
       "sym": "SPCX",
       "name": "Space Exploration Technologies",
-      "price": 143.5,
-      "chg": 1.8000030517578125,
-      "pct": 1.2702915247170312
+      "price": 138.43,
+      "chg": -5.069999999999993,
+      "pct": -3.533101045296162
     }
   ],
   "launch": {
     "name": "Falcon 9 Block 5 | USSF-317",
     "status": "Go for Launch",
     "pad": "Vandenberg SFB, CA, USA",
-    "when": "Fri 20 Nov, 1:46 PM",
-    "countdown": "in ~29 hours"
+    "when": "Fri 20 Nov, 3:32 PM",
+    "countdown": "in ~7 hours"
   },
   "news": [
     {
       "tag": "Tesla",
       "items": [
         {
-          "title": "Tesla Robotaxi takes over for Uber credits and loaners at Service locations",
-          "teaser": "Tesla is now utilizing its in-house Robotaxi platform to give those waiting for their vehicles during Service visits rides instead of offering Uber credits or Loaner vehicles. Tesla owners in Austin who bring vehicles in for service are receiving in-app prompts to use the company\u2019s Robotaxi network while their cars are being worked on. One",
-          "link": "https://www.teslarati.com/tesla-robotaxi-takes-over-uber-credits-loaners-service/",
+          "title": "Elon Musk makes surprise stop at Giga Shanghai with a message for Tesla\u2019s China team",
+          "teaser": "Elon Musk flew overnight to Giga Shanghai to personally thank Tesla's China and APAC teams.",
+          "link": "https://www.teslarati.com/elon-musk-makes-surprise-stop-at-giga-shanghai-with-a-message-for-teslas-china-team/",
           "source": "Teslarati",
           "age": "1h ago"
         }
@@ -72,7 +72,7 @@
           "teaser": "Sean Duffy says the FAA picked a ground network over Starlink, and Musk isn't impressed.",
           "link": "https://www.teslarati.com/sean-duffy-elon-musk-free-starlink/",
           "source": "Teslarati",
-          "age": "4h ago"
+          "age": "28h ago"
         }
       ]
     },
@@ -80,20 +80,20 @@
       "tag": "AI & Robotics",
       "items": [
         {
-          "title": "Sam Altman says his life is so weird that he\u2019s unfazed by Andrew Garfield portraying him in upcoming movie",
-          "teaser": "\"It doesn't feel like it's in like the top 10 weirdest things about my life,\" Altman said.",
-          "link": "https://techcrunch.com/2026/11/18/sam-altman-says-his-life-is-so-weird-that-hes-unfazed-by-andrew-garfield-portraying-him-in-upcoming-movie/",
+          "title": "The unfolding Jensen Huang scandal: a timeline",
+          "teaser": "Jensen Huang has resigned from Nvidia following an affair, which could have ramifications for national security as the U.S. and China race to develop the most advanced AI infrastructure.",
+          "link": "https://techcrunch.com/2026/11/19/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/",
           "source": "TechCrunch",
-          "age": "1h ago"
+          "age": "just now"
         }
       ]
     }
   ],
   "photo": {
-    "photographer": "Ansel Adams",
-    "title": "The Tetons and the Snake River",
-    "year": "1942",
-    "credit": "U.S. National Archives (public domain)",
-    "file": "ansel-adams--the-tetons-and-the-snake-river.jpg"
+    "photographer": "Alfred Stieglitz",
+    "title": "The Steerage",
+    "year": "1907",
+    "credit": "The Metropolitan Museum of Art, Open Access (public domain)",
+    "file": "alfred-stieglitz--the-steerage.jpg"
   }
 }
