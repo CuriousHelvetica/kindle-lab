@@ -1,23 +1,23 @@
 {
-  "generated": "2026-11-20T08:10:33.497501+11:00",
+  "generated": "2026-11-21T08:10:19.139483+11:00",
   "weather": {
-    "temp": 20,
+    "temp": 21,
     "feels": 22,
-    "cond": "Overcast",
-    "today_hi": 28,
-    "today_lo": 16,
+    "cond": "Clear",
+    "today_hi": 32,
+    "today_lo": 18,
     "days": [
-      {
-        "label": "Sat 21",
-        "cond": "Heavy drizzle",
-        "hi": 30,
-        "lo": 17
-      },
       {
         "label": "Sun 22",
         "cond": "Light drizzle",
-        "hi": 32,
+        "hi": 34,
         "lo": 18
+      },
+      {
+        "label": "Mon 23",
+        "cond": "Light drizzle",
+        "hi": 31,
+        "lo": 22
       }
     ]
   },
@@ -25,30 +25,30 @@
     {
       "sym": "AAPL",
       "name": "Apple Inc.",
-      "price": 349.21,
-      "chg": -3.2400122070312705,
-      "pct": -0.9192827620411794
+      "price": 342.56,
+      "chg": -6.649991455078123,
+      "pct": -1.9042958729127795
     },
     {
       "sym": "TSLA",
       "name": "Tesla, Inc.",
-      "price": 374.41,
-      "chg": -9.3100012207031,
-      "pct": -2.4262486164614323
+      "price": 345.82,
+      "chg": -28.590003662109382,
+      "pct": -7.636014898766103
     },
     {
       "sym": "SPCX",
       "name": "Space Exploration Technologies",
-      "price": 138.43,
-      "chg": -5.069999999999993,
-      "pct": -3.533101045296162
+      "price": 127.79,
+      "chg": -10.639992675781244,
+      "pct": -7.6861903046555184
     }
   ],
   "launch": {
     "name": "Falcon 9 Block 5 | USSF-317",
     "status": "Go for Launch",
     "pad": "Vandenberg SFB, CA, USA",
-    "when": "Fri 20 Nov, 3:32 PM",
+    "when": "Sat 21 Nov, 3:20 PM",
     "countdown": "in ~7 hours"
   },
   "news": [
@@ -56,11 +56,11 @@
       "tag": "Tesla",
       "items": [
         {
-          "title": "Elon Musk makes surprise stop at Giga Shanghai with a message for Tesla\u2019s China team",
-          "teaser": "Elon Musk flew overnight to Giga Shanghai to personally thank Tesla's China and APAC teams.",
-          "link": "https://www.teslarati.com/elon-musk-makes-surprise-stop-at-giga-shanghai-with-a-message-for-teslas-china-team/",
-          "source": "Teslarati",
-          "age": "1h ago"
+          "title": "Tesla FSD approved in Italy, the first big EU market to say yes",
+          "teaser": "Italy\u2019s transport ministry has granted provisional approval to Tesla Assisted Driving, the name Tesla now uses for \u201cFull Self-Driving (Supervised)\u201d in Europe. Italy becomes the 12th European country to allow the system, and the first of the EU\u2019s big markets. It also didn\u2019t wait for Brussels. The EU committee that decides on bloc-wide recognition isn\u2019t expected to vote until December at the earliest.",
+          "link": "https://electrek.co/2026/11/20/tesla-fsd-italy-approval-assisted-driving/",
+          "source": "Electrek",
+          "age": "5h ago"
         }
       ]
     },
@@ -68,11 +68,11 @@
       "tag": "SpaceX",
       "items": [
         {
-          "title": "Sean Duffy fires back at Elon Musk over free Starlink",
-          "teaser": "Sean Duffy says the FAA picked a ground network over Starlink, and Musk isn't impressed.",
-          "link": "https://www.teslarati.com/sean-duffy-elon-musk-free-starlink/",
-          "source": "Teslarati",
-          "age": "28h ago"
+          "title": "I got to tour SpaceX's Starfactory facility in Starbase, Texas, and what I saw blew my mind",
+          "teaser": "SpaceX invited media on an unprecedented behind-the-scenes tour of its Starfactory facility, where it manufactures and assembles both stages of its massive Starship rocket.",
+          "link": "https://www.space.com/space-exploration/private-spaceflight/i-got-to-tour-spacexs-starfactory-facility-in-starbase-texas-and-what-i-saw-blew-my-mind",
+          "source": "Space.com",
+          "age": "8h ago"
         }
       ]
     },
@@ -80,20 +80,20 @@
       "tag": "AI & Robotics",
       "items": [
         {
-          "title": "The unfolding Jensen Huang scandal: a timeline",
-          "teaser": "Jensen Huang has resigned from Nvidia following an affair, which could have ramifications for national security as the U.S. and China race to develop the most advanced AI infrastructure.",
-          "link": "https://techcrunch.com/2026/11/19/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/",
+          "title": "Daniel Ek backs AI researcher\u2019s fusion power startup. Here\u2019s what they\u2019re building.",
+          "teaser": "Spotify founder Daniel Ek is backing Europa Fusion, a fusion power startup founded by an AI researcher. Here's what the startup is building.",
+          "link": "https://techcrunch.com/2026/11/20/daniel-ek-backs-ai-researchers-fusion-power-startup-heres-what-theyre-building/",
           "source": "TechCrunch",
-          "age": "just now"
+          "age": "1h ago"
         }
       ]
     }
   ],
   "photo": {
-    "photographer": "Alfred Stieglitz",
-    "title": "The Steerage",
-    "year": "1907",
-    "credit": "The Metropolitan Museum of Art, Open Access (public domain)",
-    "file": "alfred-stieglitz--the-steerage.jpg"
+    "photographer": "Ansel Adams",
+    "title": "Grand Canyon National Park",
+    "year": "1933\u20131942",
+    "credit": "U.S. National Archives (public domain)",
+    "file": "ansel-adams--grand-canyon-national-park.jpg"
   }
 }
