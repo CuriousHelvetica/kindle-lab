@@ -1,23 +1,23 @@
 {
-  "generated": "2026-11-21T08:10:19.139483+11:00",
+  "generated": "2026-11-22T08:10:24.233954+11:00",
   "weather": {
-    "temp": 21,
-    "feels": 22,
-    "cond": "Clear",
-    "today_hi": 32,
-    "today_lo": 18,
+    "temp": 25,
+    "feels": 28,
+    "cond": "Partly cloudy",
+    "today_hi": 35,
+    "today_lo": 19,
     "days": [
       {
-        "label": "Sun 22",
-        "cond": "Light drizzle",
-        "hi": 34,
-        "lo": 18
+        "label": "Mon 23",
+        "cond": "Thunderstorm",
+        "hi": 32,
+        "lo": 20
       },
       {
-        "label": "Mon 23",
-        "cond": "Light drizzle",
-        "hi": 31,
-        "lo": 22
+        "label": "Tue 24",
+        "cond": "Light showers",
+        "hi": 22,
+        "lo": 16
       }
     ]
   },
@@ -46,21 +46,21 @@
   ],
   "launch": {
     "name": "Falcon 9 Block 5 | USSF-317",
-    "status": "Go for Launch",
+    "status": "Launch Successful",
     "pad": "Vandenberg SFB, CA, USA",
     "when": "Sat 21 Nov, 3:20 PM",
-    "countdown": "in ~7 hours"
+    "countdown": "imminent"
   },
   "news": [
     {
       "tag": "Tesla",
       "items": [
         {
-          "title": "Tesla FSD approved in Italy, the first big EU market to say yes",
-          "teaser": "Italy\u2019s transport ministry has granted provisional approval to Tesla Assisted Driving, the name Tesla now uses for \u201cFull Self-Driving (Supervised)\u201d in Europe. Italy becomes the 12th European country to allow the system, and the first of the EU\u2019s big markets. It also didn\u2019t wait for Brussels. The EU committee that decides on bloc-wide recognition isn\u2019t expected to vote until December at the earliest.",
-          "link": "https://electrek.co/2026/11/20/tesla-fsd-italy-approval-assisted-driving/",
-          "source": "Electrek",
-          "age": "5h ago"
+          "title": "Tesla Full Self-Driving v15 rollout begins: full release notes and improvements",
+          "teaser": "Tesla has announced that Full Self-Driving version 15 is now rolling out, after CEO Elon Musk said earlier today that the wide rollout would occur in December. Now, Tesla is rolling out to Early Access Program (EAP) members v15\u2019s first builds, and there are a lot of new improvements. Tesla explicitly stated that safety improvements",
+          "link": "https://www.teslarati.com/tesla-full-self-driving-v15-rollout-begins-full-release-notes-improvements/",
+          "source": "Teslarati",
+          "age": "1h ago"
         }
       ]
     },
@@ -68,11 +68,11 @@
       "tag": "SpaceX",
       "items": [
         {
-          "title": "I got to tour SpaceX's Starfactory facility in Starbase, Texas, and what I saw blew my mind",
-          "teaser": "SpaceX invited media on an unprecedented behind-the-scenes tour of its Starfactory facility, where it manufactures and assembles both stages of its massive Starship rocket.",
-          "link": "https://www.space.com/space-exploration/private-spaceflight/i-got-to-tour-spacexs-starfactory-facility-in-starbase-texas-and-what-i-saw-blew-my-mind",
-          "source": "Space.com",
-          "age": "8h ago"
+          "title": "Live coverage: SpaceX to launch intelligence-gathering satellites for the National Reconnaissance Office",
+          "teaser": "The NROL-136 mission will be the fourth launch of the year supporting the agency\u2019s proliferated architecture satellite constellation in low Earth orbit. Liftoff from pad 4E at Vandenberg Space Force Base is scheduled during a window that opens at 4:16 a.m. PST (7:16 a.m. EST / 1216 UTC).",
+          "link": "https://spaceflightnow.com/2026/11/21/live-coverage-spacex-to-launch-intelligence-gathering-satellites-for-the-national-reconnaissance-office-3/",
+          "source": "Spaceflight Now",
+          "age": "4h ago"
         }
       ]
     },
@@ -80,20 +80,20 @@
       "tag": "AI & Robotics",
       "items": [
         {
-          "title": "Daniel Ek backs AI researcher\u2019s fusion power startup. Here\u2019s what they\u2019re building.",
-          "teaser": "Spotify founder Daniel Ek is backing Europa Fusion, a fusion power startup founded by an AI researcher. Here's what the startup is building.",
-          "link": "https://techcrunch.com/2026/11/20/daniel-ek-backs-ai-researchers-fusion-power-startup-heres-what-theyre-building/",
+          "title": "A tale of two Nvidias",
+          "teaser": "We got two very different pictures of Nvidia \u2014 the company\u2019s latest earnings report vs. the tech executives loudly calling for Jensen Huang\u2019s return.",
+          "link": "https://techcrunch.com/2026/11/21/a-tale-of-two-nvidias/",
           "source": "TechCrunch",
-          "age": "1h ago"
+          "age": "just now"
         }
       ]
     }
   ],
   "photo": {
-    "photographer": "Ansel Adams",
-    "title": "Grand Canyon National Park",
-    "year": "1933\u20131942",
-    "credit": "U.S. National Archives (public domain)",
-    "file": "ansel-adams--grand-canyon-national-park.jpg"
+    "photographer": "Edward Steichen",
+    "title": "The Flatiron",
+    "year": "1904",
+    "credit": "Public domain, via Wikimedia Commons",
+    "file": "edward-steichen--the-flatiron.jpg"
   }
 }
