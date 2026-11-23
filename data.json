@@ -1,23 +1,23 @@
 {
-  "generated": "2026-11-23T08:10:14.639557+11:00",
+  "generated": "2026-11-24T08:10:16.559581+11:00",
   "weather": {
-    "temp": 26,
-    "feels": 26,
+    "temp": 21,
+    "feels": 20,
     "cond": "Overcast",
-    "today_hi": 30,
-    "today_lo": 21,
+    "today_hi": 24,
+    "today_lo": 17,
     "days": [
-      {
-        "label": "Tue 24",
-        "cond": "Drizzle",
-        "hi": 23,
-        "lo": 16
-      },
       {
         "label": "Wed 25",
         "cond": "Light drizzle",
-        "hi": 21,
+        "hi": 22,
         "lo": 16
+      },
+      {
+        "label": "Thu 26",
+        "cond": "Overcast",
+        "hi": 25,
+        "lo": 15
       }
     ]
   },
@@ -25,42 +25,42 @@
     {
       "sym": "AAPL",
       "name": "Apple Inc.",
-      "price": 342.56,
-      "chg": -6.649991455078123,
-      "pct": -1.9042958729127795
+      "price": 349.08,
+      "chg": 6.520002441406234,
+      "pct": 1.9033169336390507
     },
     {
       "sym": "TSLA",
       "name": "Tesla, Inc.",
-      "price": 345.82,
-      "chg": -28.590003662109382,
-      "pct": -7.636014898766103
+      "price": 385.46,
+      "chg": 39.63999267578123,
+      "pct": 11.462608245976151
     },
     {
       "sym": "SPCX",
       "name": "Space Exploration Technologies",
-      "price": 127.79,
-      "chg": -10.639992675781244,
-      "pct": -7.6861903046555184
+      "price": 133.35,
+      "chg": 5.559999084472651,
+      "pct": 4.35088742831136
     }
   ],
   "launch": {
-    "name": "Falcon 9 Block 5 | NROL-136",
-    "status": "Launch Successful",
+    "name": "Falcon 9 Block 5 | USSF-266",
+    "status": "Go for Launch",
     "pad": "Vandenberg SFB, CA, USA",
-    "when": "Sun 22 Nov, 11:23 PM",
-    "countdown": "imminent"
+    "when": "Wed 25 Nov, 2:55 AM",
+    "countdown": "in ~18 hours"
   },
   "news": [
     {
       "tag": "Tesla",
       "items": [
         {
-          "title": "Tesla Full Self-Driving v15: a first-hand look at Reality View, new features",
-          "teaser": "Tesla has officially started rolling out the Full Self-Driving version 15 update, and we were lucky enough to get it in the first wave on Saturday night. It comes with a lot of new features, but the biggest is Tesla Reality View, a real-time AI video generation of the outside world that uses less compute",
-          "link": "https://www.teslarati.com/tesla-full-self-driving-v15-first-hand-look-at-reality-view-new-features/",
+          "title": "Tesla FSD v15\u2019s \u2018Reality View\u2019 has one complaint and Musk has the solution",
+          "teaser": "Tesla Full Self-Driving version 15\u2019s biggest feature, \u201cReality View,\u201d has one complaint, but in typical fashion, CEO Elon Musk already announced a solution. Upon the release of the v15 Full Self-Driving suite on Saturday, one of the first impressions of the new Reality View feature is that there is a bit of input lag on",
+          "link": "https://www.teslarati.com/tesla-fsd-v15s-reality-drive-one-complaint-musk-solution/",
           "source": "Teslarati",
-          "age": "1h ago"
+          "age": "2h ago"
         }
       ]
     },
@@ -68,11 +68,11 @@
       "tag": "SpaceX",
       "items": [
         {
-          "title": "SpaceX sends classified US spy satellites to orbit in early-morning launch from California coast (video)",
-          "teaser": "SpaceX launched a batch of classified spy satellites for the U.S. government's National Reconnaissance Office early on Sunday morning (Nov. 22).",
-          "link": "https://www.space.com/space-exploration/launches-spacecraft/spacex-spy-satellite-launch-nrol-136-proliferated-architecture",
-          "source": "Space.com",
-          "age": "5h ago"
+          "title": "Tesla and SpaceXAI CEO Elon Musk reacts to Jensen Huang\u2019s NVIDIA return",
+          "teaser": "Tesla and SpaceXAI CEO Elon Musk has reacted to Jensen Huang\u2019s return to NVIDIA as President, CEO, and Board Director, a move that Musk has been calling for since Huang was removed by the chip maker\u2019s board. \u201cThe mistake has been corrected,\u201d Musk said as NVIDIA announced in a press release this morning that it",
+          "link": "https://www.teslarati.com/tesla-spacexai-ceo-elon-musk-reacts-jensen-huangs-nvidia-return/",
+          "source": "Teslarati",
+          "age": "4h ago"
         }
       ]
     },
@@ -80,20 +80,20 @@
       "tag": "AI & Robotics",
       "items": [
         {
-          "title": "Why data centers are at the center of the Big Tech backlash",
-          "teaser": "Journalist Paris Marx unpacks his new book \"Hyperscale.\"",
-          "link": "https://techcrunch.com/2026/11/22/why-data-centers-are-at-the-center-of-the-big-tech-backlash/",
+          "title": "Nvidia employees greet Jensen Huang like a hero as he returns to company\u2019s HQ",
+          "teaser": "\"I'm going to be a better CEO the second time around,\" Huang told employees.",
+          "link": "https://techcrunch.com/2026/11/23/nvidia-employees-greet-jensen-huang-like-a-hero-as-he-returns-to-companys-hq/",
           "source": "TechCrunch",
-          "age": "3h ago"
+          "age": "just now"
         }
       ]
     }
   ],
   "photo": {
-    "photographer": "Ansel Adams",
-    "title": "Long's Peak from North, Rocky Mountain National Park",
-    "year": "1933\u20131942",
-    "credit": "U.S. National Archives (public domain)",
-    "file": "ansel-adams--long-s-peak-from-north-rocky-mountain-national-park.jpg"
+    "photographer": "Eug\u00e8ne Atget",
+    "title": "Rue des Ursins, Paris",
+    "year": "1923",
+    "credit": "Public domain, via Wikimedia Commons",
+    "file": "eugene-atget--rue-des-ursins-paris.jpg"
   }
 }
