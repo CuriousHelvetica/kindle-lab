@@ -1,23 +1,23 @@
 {
-  "generated": "2026-11-24T08:10:16.559581+11:00",
+  "generated": "2026-11-25T08:10:14.826847+11:00",
   "weather": {
-    "temp": 21,
-    "feels": 20,
-    "cond": "Overcast",
-    "today_hi": 24,
-    "today_lo": 17,
+    "temp": 18,
+    "feels": 17,
+    "cond": "Mainly clear",
+    "today_hi": 21,
+    "today_lo": 15,
     "days": [
-      {
-        "label": "Wed 25",
-        "cond": "Light drizzle",
-        "hi": 22,
-        "lo": 16
-      },
       {
         "label": "Thu 26",
         "cond": "Overcast",
         "hi": 25,
-        "lo": 15
+        "lo": 14
+      },
+      {
+        "label": "Fri 27",
+        "cond": "Light drizzle",
+        "hi": 26,
+        "lo": 18
       }
     ]
   },
@@ -25,42 +25,42 @@
     {
       "sym": "AAPL",
       "name": "Apple Inc.",
-      "price": 349.08,
-      "chg": 6.520002441406234,
-      "pct": 1.9033169336390507
+      "price": 354.07,
+      "chg": 4.990013427734368,
+      "pct": 1.4294756559185753
     },
     {
       "sym": "TSLA",
       "name": "Tesla, Inc.",
-      "price": 385.46,
-      "chg": 39.63999267578123,
-      "pct": 11.462608245976151
+      "price": 384.68,
+      "chg": -0.7799914550781182,
+      "pct": -0.20235341471723636
     },
     {
       "sym": "SPCX",
       "name": "Space Exploration Technologies",
-      "price": 133.35,
-      "chg": 5.559999084472651,
-      "pct": 4.35088742831136
+      "price": 125.81,
+      "chg": -7.540006103515623,
+      "pct": -5.654297531612065
     }
   ],
   "launch": {
     "name": "Falcon 9 Block 5 | USSF-266",
-    "status": "Go for Launch",
+    "status": "Launch Successful",
     "pad": "Vandenberg SFB, CA, USA",
-    "when": "Wed 25 Nov, 2:55 AM",
-    "countdown": "in ~18 hours"
+    "when": "Wed 25 Nov, 3:08 AM",
+    "countdown": "imminent"
   },
   "news": [
     {
       "tag": "Tesla",
       "items": [
         {
-          "title": "Tesla FSD v15\u2019s \u2018Reality View\u2019 has one complaint and Musk has the solution",
-          "teaser": "Tesla Full Self-Driving version 15\u2019s biggest feature, \u201cReality View,\u201d has one complaint, but in typical fashion, CEO Elon Musk already announced a solution. Upon the release of the v15 Full Self-Driving suite on Saturday, one of the first impressions of the new Reality View feature is that there is a bit of input lag on",
-          "link": "https://www.teslarati.com/tesla-fsd-v15s-reality-drive-one-complaint-musk-solution/",
-          "source": "Teslarati",
-          "age": "2h ago"
+          "title": "Tesla (TSLA), SpaceX race for year-end merger deal before new Congress",
+          "teaser": "Tesla (TSLA) and SpaceX are working toward a year-end deadline to agree on their all-stock merger, according to the Financial Times. A signed deal by December 31 would land days before the new Congress, where Democrats have promised to dig into Musk\u2019s companies, is sworn in on January 3. The FT also named the directors negotiating for each side. Two of Tesla\u2019s three are the same people who designed Musk\u2019s $1 trillion pay package.",
+          "link": "https://electrek.co/2026/11/24/tesla-spacex-merger-year-end-deadline-new-congress/",
+          "source": "Electrek",
+          "age": "6h ago"
         }
       ]
     },
@@ -68,11 +68,11 @@
       "tag": "SpaceX",
       "items": [
         {
-          "title": "Tesla and SpaceXAI CEO Elon Musk reacts to Jensen Huang\u2019s NVIDIA return",
-          "teaser": "Tesla and SpaceXAI CEO Elon Musk has reacted to Jensen Huang\u2019s return to NVIDIA as President, CEO, and Board Director, a move that Musk has been calling for since Huang was removed by the chip maker\u2019s board. \u201cThe mistake has been corrected,\u201d Musk said as NVIDIA announced in a press release this morning that it",
-          "link": "https://www.teslarati.com/tesla-spacexai-ceo-elon-musk-reacts-jensen-huangs-nvidia-return/",
-          "source": "Teslarati",
-          "age": "4h ago"
+          "title": "SpaceX launches classified payload for the U.S. Space Force",
+          "teaser": "The mission is the third in a series of flights for the U.S. Space Force with a \u2018TH\u2019 designation in public filings. Liftoff from pad 4E at Vandenberg Space Force Base is scheduled during a window that opens at 7:55 a.m. PST (10:55 a.m. EST / 1555 UTC).",
+          "link": "https://spaceflightnow.com/2026/11/23/live-coverage-spacex-to-launch-classified-payload-for-the-u-s-space-force-3/",
+          "source": "Spaceflight Now",
+          "age": "22h ago"
         }
       ]
     },
@@ -80,20 +80,20 @@
       "tag": "AI & Robotics",
       "items": [
         {
-          "title": "Nvidia employees greet Jensen Huang like a hero as he returns to company\u2019s HQ",
-          "teaser": "\"I'm going to be a better CEO the second time around,\" Huang told employees.",
-          "link": "https://techcrunch.com/2026/11/23/nvidia-employees-greet-jensen-huang-like-a-hero-as-he-returns-to-companys-hq/",
+          "title": "Anthropic shares fall below IPO price, a worrying sign for AI startups",
+          "teaser": "Anthropic\u2019s post-IPO slump could put pressure on AI startup valuations.",
+          "link": "https://techcrunch.com/2026/11/24/anthropic-shares-fall-below-ipo-price-a-worrying-sign-for-ai-startups/",
           "source": "TechCrunch",
-          "age": "just now"
+          "age": "2h ago"
         }
       ]
     }
   ],
   "photo": {
-    "photographer": "Eug\u00e8ne Atget",
-    "title": "Rue des Ursins, Paris",
-    "year": "1923",
-    "credit": "Public domain, via Wikimedia Commons",
-    "file": "eugene-atget--rue-des-ursins-paris.jpg"
+    "photographer": "Ansel Adams",
+    "title": "Yellowstone Falls",
+    "year": "1933\u20131942",
+    "credit": "U.S. National Archives (public domain)",
+    "file": "ansel-adams--yellowstone-falls.jpg"
   }
 }
