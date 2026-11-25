@@ -1,23 +1,23 @@
 {
-  "generated": "2026-11-25T08:10:14.826847+11:00",
+  "generated": "2026-11-26T08:10:16.138571+11:00",
   "weather": {
-    "temp": 18,
-    "feels": 17,
-    "cond": "Mainly clear",
-    "today_hi": 21,
-    "today_lo": 15,
+    "temp": 20,
+    "feels": 21,
+    "cond": "Clear",
+    "today_hi": 25,
+    "today_lo": 16,
     "days": [
-      {
-        "label": "Thu 26",
-        "cond": "Overcast",
-        "hi": 25,
-        "lo": 14
-      },
       {
         "label": "Fri 27",
         "cond": "Light drizzle",
-        "hi": 26,
-        "lo": 18
+        "hi": 25,
+        "lo": 17
+      },
+      {
+        "label": "Sat 28",
+        "cond": "Thunderstorm, hail",
+        "hi": 32,
+        "lo": 19
       }
     ]
   },
@@ -25,42 +25,42 @@
     {
       "sym": "AAPL",
       "name": "Apple Inc.",
-      "price": 354.07,
-      "chg": 4.990013427734368,
-      "pct": 1.4294756559185753
+      "price": 355.58,
+      "chg": 1.509992675781234,
+      "pct": 0.4264672648193404
     },
     {
       "sym": "TSLA",
       "name": "Tesla, Inc.",
-      "price": 384.68,
-      "chg": -0.7799914550781182,
-      "pct": -0.20235341471723636
+      "price": 380.14,
+      "chg": -4.539992675781264,
+      "pct": -1.1801998446037438
     },
     {
       "sym": "SPCX",
       "name": "Space Exploration Technologies",
-      "price": 125.81,
-      "chg": -7.540006103515623,
-      "pct": -5.654297531612065
+      "price": 127.44,
+      "chg": 1.6300024414062477,
+      "pct": 1.2956064486426075
     }
   ],
   "launch": {
-    "name": "Falcon 9 Block 5 | USSF-266",
-    "status": "Launch Successful",
+    "name": "Falcon 9 Block 5 | USSF-380",
+    "status": "Go for Launch",
     "pad": "Vandenberg SFB, CA, USA",
-    "when": "Wed 25 Nov, 3:08 AM",
-    "countdown": "imminent"
+    "when": "Sun 29 Nov, 3:39 PM",
+    "countdown": "in ~3 days"
   },
   "news": [
     {
       "tag": "Tesla",
       "items": [
         {
-          "title": "Tesla (TSLA), SpaceX race for year-end merger deal before new Congress",
-          "teaser": "Tesla (TSLA) and SpaceX are working toward a year-end deadline to agree on their all-stock merger, according to the Financial Times. A signed deal by December 31 would land days before the new Congress, where Democrats have promised to dig into Musk\u2019s companies, is sworn in on January 3. The FT also named the directors negotiating for each side. Two of Tesla\u2019s three are the same people who designed Musk\u2019s $1 trillion pay package.",
-          "link": "https://electrek.co/2026/11/24/tesla-spacex-merger-year-end-deadline-new-congress/",
+          "title": "Tesla quietly sets up a company at German machine maker EMAG\u2019s HQ",
+          "teaser": "Tesla has registered a new German company whose business address is the headquarters of EMAG, a struggling machine-tool maker that builds production equipment for the gears inside humanoid robots. Neither company confirmed a deal. But the paper trail is hard to ignore, and it lines up neatly with Tesla\u2019s push to mass-produce Optimus.",
+          "link": "https://electrek.co/2026/11/25/tesla-emag-germany-machining-company-optimus/",
           "source": "Electrek",
-          "age": "6h ago"
+          "age": "just now"
         }
       ]
     },
@@ -68,11 +68,11 @@
       "tag": "SpaceX",
       "items": [
         {
-          "title": "SpaceX launches classified payload for the U.S. Space Force",
-          "teaser": "The mission is the third in a series of flights for the U.S. Space Force with a \u2018TH\u2019 designation in public filings. Liftoff from pad 4E at Vandenberg Space Force Base is scheduled during a window that opens at 7:55 a.m. PST (10:55 a.m. EST / 1555 UTC).",
-          "link": "https://spaceflightnow.com/2026/11/23/live-coverage-spacex-to-launch-classified-payload-for-the-u-s-space-force-3/",
-          "source": "Spaceflight Now",
-          "age": "22h ago"
+          "title": "SpaceX Starship debris becomes art in Ashley Zelinskie's 'The Weight of Space' (video, photos)",
+          "teaser": "Explore Ashley Zelinskie's 'The Weight of Space' Monuments in marble, Ejecta prints, Launch Sequence sculptures and interactive Crowded Sky at Heft Gallery in New York City.",
+          "link": "https://www.space.com/entertainment/spacex-starship-debris-becomes-art-in-ashley-zelinskies-the-weight-of-space-video-photos",
+          "source": "Space.com",
+          "age": "2h ago"
         }
       ]
     },
@@ -80,20 +80,20 @@
       "tag": "AI & Robotics",
       "items": [
         {
-          "title": "Anthropic shares fall below IPO price, a worrying sign for AI startups",
-          "teaser": "Anthropic\u2019s post-IPO slump could put pressure on AI startup valuations.",
-          "link": "https://techcrunch.com/2026/11/24/anthropic-shares-fall-below-ipo-price-a-worrying-sign-for-ai-startups/",
+          "title": "OpenAI says heavy ChatGPT users may hit limits sooner as it merges Chat and Work",
+          "teaser": "OpenAI will introduce a single usage meter across ChatGPT as it combines the Chat and Work experiences.",
+          "link": "https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/",
           "source": "TechCrunch",
-          "age": "2h ago"
+          "age": "1h ago"
         }
       ]
     }
   ],
   "photo": {
-    "photographer": "Ansel Adams",
-    "title": "Yellowstone Falls",
-    "year": "1933\u20131942",
-    "credit": "U.S. National Archives (public domain)",
-    "file": "ansel-adams--yellowstone-falls.jpg"
+    "photographer": "Paul Strand",
+    "title": "Wall Street, New York",
+    "year": "1915",
+    "credit": "Public domain, via Wikimedia Commons",
+    "file": "paul-strand--wall-street-new-york.jpg"
   }
 }
