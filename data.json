@@ -1,26 +1,6 @@
 {
-  "generated": "2026-11-26T08:10:16.138571+11:00",
-  "weather": {
-    "temp": 20,
-    "feels": 21,
-    "cond": "Clear",
-    "today_hi": 25,
-    "today_lo": 16,
-    "days": [
-      {
-        "label": "Fri 27",
-        "cond": "Light drizzle",
-        "hi": 25,
-        "lo": 17
-      },
-      {
-        "label": "Sat 28",
-        "cond": "Thunderstorm, hail",
-        "hi": 32,
-        "lo": 19
-      }
-    ]
-  },
+  "generated": "2026-11-27T08:10:17.926793+11:00",
+  "weather": null,
   "stocks": [
     {
       "sym": "AAPL",
@@ -49,18 +29,18 @@
     "status": "Go for Launch",
     "pad": "Vandenberg SFB, CA, USA",
     "when": "Sun 29 Nov, 3:39 PM",
-    "countdown": "in ~3 days"
+    "countdown": "in ~2 days"
   },
   "news": [
     {
       "tag": "Tesla",
       "items": [
         {
-          "title": "Tesla quietly sets up a company at German machine maker EMAG\u2019s HQ",
-          "teaser": "Tesla has registered a new German company whose business address is the headquarters of EMAG, a struggling machine-tool maker that builds production equipment for the gears inside humanoid robots. Neither company confirmed a deal. But the paper trail is hard to ignore, and it lines up neatly with Tesla\u2019s push to mass-produce Optimus.",
-          "link": "https://electrek.co/2026/11/25/tesla-emag-germany-machining-company-optimus/",
+          "title": "Tesla deploys 29 mobile Supercharger stalls for Thanksgiving travel rush",
+          "teaser": "Tesla has parked a fleet of mobile Supercharger stalls at some of its busiest stations in California and Arizona to handle the Thanksgiving travel crush. The company says 29 temporary stalls are live, on top of 1,027 permanent stalls it opened in the US over the last 56 days. It\u2019s the most organized holiday push we\u2019ve seen from Tesla\u2019s charging team.",
+          "link": "https://electrek.co/2026/11/26/tesla-deploys-mobile-superchargers-thanksgiving-travel/",
           "source": "Electrek",
-          "age": "just now"
+          "age": "3h ago"
         }
       ]
     },
@@ -68,11 +48,11 @@
       "tag": "SpaceX",
       "items": [
         {
-          "title": "SpaceX Starship debris becomes art in Ashley Zelinskie's 'The Weight of Space' (video, photos)",
-          "teaser": "Explore Ashley Zelinskie's 'The Weight of Space' Monuments in marble, Ejecta prints, Launch Sequence sculptures and interactive Crowded Sky at Heft Gallery in New York City.",
-          "link": "https://www.space.com/entertainment/spacex-starship-debris-becomes-art-in-ashley-zelinskies-the-weight-of-space-video-photos",
-          "source": "Space.com",
-          "age": "2h ago"
+          "title": "FCC green lights SpaceX\u2019s plan to launch 1 million \u2018Starmind\u2019 data center satellites",
+          "teaser": "The authorization granted by the Federal Communications Commission requires SpaceX to deploy the first of these satellites by Nov. 25, 2033. The full constellation is required to be operational no later than Nov. 25, 2040.",
+          "link": "https://spaceflightnow.com/2026/11/26/fcc-green-lights-spacexs-plan-to-launch-1-million-starmind-data-center-satellites/",
+          "source": "Spaceflight Now",
+          "age": "19h ago"
         }
       ]
     },
@@ -80,9 +60,9 @@
       "tag": "AI & Robotics",
       "items": [
         {
-          "title": "OpenAI says heavy ChatGPT users may hit limits sooner as it merges Chat and Work",
-          "teaser": "OpenAI will introduce a single usage meter across ChatGPT as it combines the Chat and Work experiences.",
-          "link": "https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/",
+          "title": "Nvidia hits pause on chip shipments to Southeast Asia",
+          "teaser": "Nvidia has told manufacturing partners to pause server shipments to Malaysia, Singapore, Thailand and Indonesia as the U.S. tightens its push to keep AI chips out of China.",
+          "link": "https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/",
           "source": "TechCrunch",
           "age": "1h ago"
         }
@@ -90,10 +70,10 @@
     }
   ],
   "photo": {
-    "photographer": "Paul Strand",
-    "title": "Wall Street, New York",
-    "year": "1915",
+    "photographer": "Lewis Hine",
+    "title": "Power House Mechanic Working on a Steam Pump",
+    "year": "1920",
     "credit": "Public domain, via Wikimedia Commons",
-    "file": "paul-strand--wall-street-new-york.jpg"
+    "file": "lewis-hine--power-house-mechanic-working-on-a-steam-pump.jpg"
   }
 }
