@@ -1,27 +1,47 @@
 {
-  "generated": "2026-11-27T08:10:17.926793+11:00",
-  "weather": null,
+  "generated": "2026-11-28T08:10:14.909303+11:00",
+  "weather": {
+    "temp": 21,
+    "feels": 23,
+    "cond": "Overcast",
+    "today_hi": 31,
+    "today_lo": 20,
+    "days": [
+      {
+        "label": "Sun 29",
+        "cond": "Drizzle",
+        "hi": 28,
+        "lo": 18
+      },
+      {
+        "label": "Mon 30",
+        "cond": "Drizzle",
+        "hi": 21,
+        "lo": 15
+      }
+    ]
+  },
   "stocks": [
     {
       "sym": "AAPL",
       "name": "Apple Inc.",
-      "price": 355.58,
-      "chg": 1.509992675781234,
-      "pct": 0.4264672648193404
+      "price": 358.54,
+      "chg": 2.9600134277343955,
+      "pct": 0.832446577285874
     },
     {
       "sym": "TSLA",
       "name": "Tesla, Inc.",
-      "price": 380.14,
-      "chg": -4.539992675781264,
-      "pct": -1.1801998446037438
+      "price": 400.0,
+      "chg": 19.8599853515625,
+      "pct": 5.224386959086505
     },
     {
       "sym": "SPCX",
       "name": "Space Exploration Technologies",
-      "price": 127.44,
-      "chg": 1.6300024414062477,
-      "pct": 1.2956064486426075
+      "price": 133.59,
+      "chg": 6.149997558593753,
+      "pct": 4.825798368468621
     }
   ],
   "launch": {
@@ -29,18 +49,18 @@
     "status": "Go for Launch",
     "pad": "Vandenberg SFB, CA, USA",
     "when": "Sun 29 Nov, 3:39 PM",
-    "countdown": "in ~2 days"
+    "countdown": "in ~31 hours"
   },
   "news": [
     {
       "tag": "Tesla",
       "items": [
         {
-          "title": "Tesla deploys 29 mobile Supercharger stalls for Thanksgiving travel rush",
-          "teaser": "Tesla has parked a fleet of mobile Supercharger stalls at some of its busiest stations in California and Arizona to handle the Thanksgiving travel crush. The company says 29 temporary stalls are live, on top of 1,027 permanent stalls it opened in the US over the last 56 days. It\u2019s the most organized holiday push we\u2019ve seen from Tesla\u2019s charging team.",
-          "link": "https://electrek.co/2026/11/26/tesla-deploys-mobile-superchargers-thanksgiving-travel/",
+          "title": "Used Tesla Cybertruck prices jump after Musk kills it, one asks $150K",
+          "teaser": "Used Cybertruck prices are up 10 to 15% in the month since Tesla announced it would end production of its electric pickup, according to listing data from CarGurus and Visor. Some dealers are pushing it much further. One in New Jersey now wants $150,790 for a used Cyberbeast, about $36,000 more than Tesla charges for a brand-new one.",
+          "link": "https://electrek.co/2026/11/27/used-cybertruck-prices-jump-after-tesla-kills-it/",
           "source": "Electrek",
-          "age": "3h ago"
+          "age": "4h ago"
         }
       ]
     },
@@ -48,11 +68,11 @@
       "tag": "SpaceX",
       "items": [
         {
-          "title": "FCC green lights SpaceX\u2019s plan to launch 1 million \u2018Starmind\u2019 data center satellites",
-          "teaser": "The authorization granted by the Federal Communications Commission requires SpaceX to deploy the first of these satellites by Nov. 25, 2033. The full constellation is required to be operational no later than Nov. 25, 2040.",
-          "link": "https://spaceflightnow.com/2026/11/26/fcc-green-lights-spacexs-plan-to-launch-1-million-starmind-data-center-satellites/",
-          "source": "Spaceflight Now",
-          "age": "19h ago"
+          "title": "Dropping missiles from orbit? 2 European companies sign agreement to study the idea",
+          "teaser": "Atmos Space Cargo will fly its first Phoenix cargo-return capsule on SpaceX's Bandwagon 3 rideshare mission, which is scheduled to launch this spring.",
+          "link": "https://www.space.com/technology/dropping-missiles-from-orbit-2-european-companies-sign-agreement-to-study-the-idea",
+          "source": "Space.com",
+          "age": "2h ago"
         }
       ]
     },
@@ -60,20 +80,20 @@
       "tag": "AI & Robotics",
       "items": [
         {
-          "title": "Nvidia hits pause on chip shipments to Southeast Asia",
-          "teaser": "Nvidia has told manufacturing partners to pause server shipments to Malaysia, Singapore, Thailand and Indonesia as the U.S. tightens its push to keep AI chips out of China.",
-          "link": "https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/",
-          "source": "TechCrunch",
-          "age": "1h ago"
+          "title": "GXO doubling down on robotics in 2027",
+          "teaser": "GXO didn't disclose which providers it would increase deployments with, but let's take a look at the existing technologies in its portfolio.",
+          "link": "https://www.therobotreport.com/gxo-doubling-down-on-robotics-in-2027/",
+          "source": "The Robot Report",
+          "age": "7h ago"
         }
       ]
     }
   ],
   "photo": {
-    "photographer": "Lewis Hine",
-    "title": "Power House Mechanic Working on a Steam Pump",
-    "year": "1920",
-    "credit": "Public domain, via Wikimedia Commons",
-    "file": "lewis-hine--power-house-mechanic-working-on-a-steam-pump.jpg"
+    "photographer": "Ansel Adams",
+    "title": "Canyon de Chelly National Monument",
+    "year": "1933\u20131942",
+    "credit": "U.S. National Archives (public domain)",
+    "file": "ansel-adams--canyon-de-chelly-national-monument.jpg"
   }
 }
